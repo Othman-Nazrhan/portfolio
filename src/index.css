@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 39, 0.78), rgba(3, 7, 18, 0.98) 34rem),
+    #05070b;
+  color: #ffffff;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(190, 242, 100, 0.28);
+  color: #f8fafc;
+}
+
+@keyframes aurora-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+
+  100% {
+    transform: translateX(130%) skewX(-18deg);
+  }
+}
+
+.animated-aurora {
+  background-size: 180% 180%;
+  animation: aurora-pan 12s ease-in-out infinite;
+}
+
+.motion-card {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.motion-card::before {
+  content: "";
+  position: absolute;
+  inset: -35% auto -35% -55%;
+  width: 44%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  opacity: 0;
+  transform: translateX(-130%) skewX(-18deg);
+}
+
+.motion-card:hover::before {
+  opacity: 1;
+  animation: sheen-sweep 0.9s ease;
+}
+
+.motion-media {
+  transition:
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-card:hover .motion-media {
+  transform: scale(1.045);
+  filter: saturate(1.16) contrast(1.04);
+}
+
+.float-soft {
+  animation: soft-float 5.5s ease-in-out infinite;
+}
+
+.gallery-thumb {
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    opacity 240ms ease;
+}
+
+.gallery-thumb:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-aurora,
+  .float-soft,
+  .motion-card:hover::before {
+    animation: none !important;
+  }
+
+  .motion-media,
+  .gallery-thumb {
+    transition: none !important;
+  }
+}
