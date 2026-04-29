@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeUp, pricing } from "../data";
+import { scaleIn, pricing } from "../data";
 import { AnimatedSection, CheckItem, Icon, SectionHeader } from "../components";
 
 export default function PricingSection({ motionConfig }) {
@@ -13,8 +13,8 @@ export default function PricingSection({ motionConfig }) {
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Offres"
-          title="Des offres flexibles pour creer, refaire ou maintenir votre site."
-          description="Commencez avec une base accessible, lancez un site WordPress, developpez une application ou gardez votre site existant en bonne sante."
+          title="Des offres simples pour avancer sans confusion."
+          description="Demarrez petit, passez sur un site complet, ajoutez WordPress, creez un outil web ou gardez votre site en bonne sante."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {pricing.map((plan) => (
@@ -33,9 +33,10 @@ export default function PricingSection({ motionConfig }) {
 function PricingCard({ plan, motionConfig }) {
   return (
     <motion.article
-      variants={fadeUp}
+      variants={scaleIn}
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
+      whileTap={motionConfig.tapPress}
       className={`relative rounded-2xl border p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 ${
         plan.highlight ? "border-lime-300/40 bg-lime-300/10" : "border-white/10 bg-[#0d1118]/85 hover:border-lime-300/30"
       }`}
@@ -46,7 +47,7 @@ function PricingCard({ plan, motionConfig }) {
         </div>
       )}
       <div className="grid h-12 w-12 place-items-center rounded-xl bg-lime-300 text-slate-950">
-        <Icon name={plan.highlight ? "bolt" : "euro"} />
+        <Icon name={plan.icon ?? (plan.highlight ? "bolt" : "euro")} />
       </div>
       <h3 className="mt-6 text-xl font-black tracking-tight text-white">{plan.name}</h3>
       <p className="mt-3 text-2xl font-black tracking-tight text-white">{plan.price}</p>

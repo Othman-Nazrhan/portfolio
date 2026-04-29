@@ -3,6 +3,13 @@ import { budgets, contactEmail, fadeUp, glassBase, inputClass, projectTypes, tim
 import { AnimatedSection, Button, Icon, SelectField } from "../components";
 import { buildMailto } from "../utils";
 
+const contactHighlights = [
+  { icon: "globe", label: "Site vitrine" },
+  { icon: "wordpress", label: "WordPress administrable" },
+  { icon: "dashboard", label: "Dashboard / app web" },
+  { icon: "refresh", label: "Maintenance et refonte" },
+];
+
 export default function ContactSection({ motionConfig }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,19 +31,19 @@ function ContactCopy({ motionConfig }) {
     <motion.div variants={fadeUp} transition={motionConfig.transition}>
       <p className="text-xs font-black uppercase tracking-[0.2em] text-lime-200">Contact</p>
       <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl">
-        Parlez-moi du site, de l'application ou de la maintenance dont vous avez besoin.
+        Dites-moi ce que vous voulez creer, corriger ou ameliorer.
       </h2>
       <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-        Envoyez le contexte, les fonctionnalites souhaitees, les problemes a corriger ou le timing. Je vous reponds
-        avec une direction claire et une estimation pour avancer proprement.
+        Envoyez votre activite, vos objectifs, les pages ou fonctionnalites souhaitees et vos delais. Je vous reponds
+        avec une direction claire et une estimation simple.
       </p>
       <div className="mt-8 space-y-4">
-        {["Creation site web", "Site WordPress", "Application web", "Maintenance tout type de site"].map((item) => (
-          <div key={item} className="flex items-center gap-3 text-sm font-bold text-slate-200">
+        {contactHighlights.map((item) => (
+          <div key={item.label} className="flex items-center gap-3 text-sm font-bold text-slate-200">
             <span className="grid h-8 w-8 place-items-center rounded-lg border border-lime-300/20 bg-lime-300/10 text-lime-200">
-              <Icon name="check" className="h-4 w-4" />
+              <Icon name={item.icon} className="h-4 w-4" />
             </span>
-            {item}
+            {item.label}
           </div>
         ))}
       </div>
@@ -76,7 +83,7 @@ function ContactForm({ motionConfig, onSubmit }) {
         <span className="text-sm font-bold text-slate-200">Brief du projet</span>
         <textarea
           name="message"
-          placeholder="Expliquez votre activite, le type de site, les pages ou fonctionnalites souhaitees, les problemes a corriger et les liens utiles si vous en avez."
+          placeholder="Exemple: je veux un site pour mon restaurant avec menu, galerie, horaires, reservation et une page contact."
           required
           className={`${inputClass} min-h-36 resize-none`}
         />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { fadeUp, glassBase, projectCatalog } from "../data";
+import { glassBase, projectCatalog, scaleIn } from "../data";
 import { AnimatedSection, Icon } from "../components";
 import { getProjectImageSrcSet, setImageWidth } from "../utils";
 
@@ -126,8 +126,10 @@ function ProjectFilters({ activeFilter, onChange }) {
 function FeaturedProject({ project, motionConfig, onOpen }) {
   return (
     <motion.article
-      variants={fadeUp}
+      variants={scaleIn}
       transition={motionConfig.transition}
+      whileHover={motionConfig.hoverLift}
+      whileTap={motionConfig.tapPress}
       className={`mt-10 overflow-hidden rounded-2xl ${glassBase}`}
     >
       <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
@@ -137,7 +139,7 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
             srcSet={getProjectImageSrcSet(project.image)}
             sizes="(min-width: 1024px) 58vw, 100vw"
             alt={project.imageAlt}
-            className="h-full min-h-80 w-full object-cover saturate-110 transition duration-500 group-hover:scale-105"
+            className="motion-media h-full min-h-80 w-full object-cover saturate-110"
             style={{ objectPosition: project.imagePosition }}
             loading="eager"
             fetchPriority="high"
@@ -182,9 +184,10 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
 function ProjectDetailCard({ project, motionConfig, onOpen }) {
   return (
     <motion.article
-      variants={fadeUp}
+      variants={scaleIn}
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
+      whileTap={motionConfig.tapPress}
       className={`overflow-hidden rounded-2xl transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
     >
       <button type="button" onClick={onOpen} className="group relative block w-full overflow-hidden text-left">
@@ -193,7 +196,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
           srcSet={getProjectImageSrcSet(project.image)}
           sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 100vw"
           alt={project.imageAlt}
-          className="aspect-[16/10] w-full object-cover saturate-110 transition duration-500 group-hover:scale-105"
+          className="motion-media aspect-[16/10] w-full object-cover saturate-110"
           style={{ objectPosition: project.imagePosition }}
           loading="lazy"
           decoding="async"
@@ -314,7 +317,7 @@ function ProjectThumbStrip({ project, compact = false }) {
           <img
             src={setImageWidth(image, 640)}
             alt={`${project.title} - apercu ${index + 1}`}
-            className={`${compact ? "aspect-[4/3]" : "aspect-[16/10]"} w-full object-cover saturate-110`}
+            className={`motion-media ${compact ? "aspect-[4/3]" : "aspect-[16/10]"} w-full object-cover saturate-110`}
             loading="lazy"
             decoding="async"
           />
@@ -340,10 +343,14 @@ function ProjectGallery({ project }) {
         <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-300">Galerie projet</p>
         <p className="text-xs font-bold text-slate-500">{images.length} visuels</p>
       </div>
-      <img
+      <motion.img
+        key={activeImage}
+        initial={{ opacity: 0, scale: 0.985, filter: "blur(8px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 0.28, ease: "easeOut" }}
         src={setImageWidth(activeImage, 1280)}
         alt={`${project.title} - visuel actif`}
-        className="aspect-[16/10] w-full rounded-xl border border-white/10 object-cover saturate-110"
+        className="motion-media aspect-[16/10] w-full rounded-xl border border-white/10 object-cover saturate-110"
         decoding="async"
       />
       <div className="mt-3 grid grid-cols-3 gap-3">
@@ -355,14 +362,14 @@ function ProjectGallery({ project }) {
               key={image}
               type="button"
               onClick={() => setActiveImage(image)}
-              className={`overflow-hidden rounded-xl border text-left transition ${
+              className={`gallery-thumb overflow-hidden rounded-xl border text-left ${
                 isActive ? "border-lime-300 ring-2 ring-lime-300/25" : "border-white/10 hover:border-lime-300/40"
               }`}
             >
               <img
                 src={setImageWidth(image, 640)}
                 alt={`${project.title} - miniature ${index + 1}`}
-                className="aspect-[4/3] w-full object-cover saturate-110"
+                className="motion-media aspect-[4/3] w-full object-cover saturate-110"
                 loading="lazy"
                 decoding="async"
               />
@@ -423,7 +430,7 @@ function ProjectDialog({ project, onClose }) {
               srcSet={getProjectImageSrcSet(project.image)}
               sizes="(min-width: 1024px) 45vw, 100vw"
               alt={project.imageAlt}
-              className="aspect-[16/11] w-full rounded-2xl object-cover saturate-110"
+              className="motion-media aspect-[16/11] w-full rounded-2xl object-cover saturate-110"
               style={{ objectPosition: project.imagePosition }}
               decoding="async"
             />

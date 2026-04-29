@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeUp, freelancerHighlights, glassBase } from "../data";
+import { fadeUp, freelancerHighlights, glassBase, scaleIn } from "../data";
 import { AnimatedSection, Icon, SectionHeader } from "../components";
 
 export default function FreelancerSection({ motionConfig }) {
@@ -21,9 +21,10 @@ export default function FreelancerSection({ motionConfig }) {
           {freelancerHighlights.map((item) => (
             <motion.article
               key={item.title}
-              variants={fadeUp}
+              variants={scaleIn}
               transition={motionConfig.transition}
               whileHover={motionConfig.hoverLift}
+              whileTap={motionConfig.tapPress}
               className={`rounded-2xl p-6 transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-lime-300 text-slate-950 shadow-lg shadow-lime-500/20">

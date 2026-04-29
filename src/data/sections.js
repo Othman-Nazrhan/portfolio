@@ -1,70 +1,70 @@
 export const metrics = [
-  { value: "100 EUR", label: "prix de depart pour lancer votre site" },
-  { value: "24h", label: "pour recevoir une reponse claire" },
-  { value: "21j", label: "pour lancer une version premium" },
+  { value: "100 EUR", label: "pour lancer une premiere page propre" },
+  { value: "24h", label: "pour recevoir un retour clair" },
+  { value: "21j", label: "pour livrer un site premium" },
 ];
 
 export const heroOffers = [
-  "Site vitrine professionnel",
-  "Site WordPress",
-  "Application web sur mesure",
-  "Maintenance et support",
+  "Site vitrine qui convertit",
+  "WordPress administrable",
+  "Dashboard ou app web",
+  "Maintenance mensuelle",
 ];
 
 export const freelancerHighlights = [
   {
     icon: "message",
     title: "Un contact direct",
-    text: "Vous parlez avec la personne qui conçoit, developpe et livre votre site. Les decisions avancent vite, sans couche inutile.",
+    text: "Vous parlez avec la personne qui concoit, developpe et livre votre site. Les decisions avancent vite, sans aller-retour inutile.",
   },
   {
     icon: "bolt",
     title: "Execution rapide",
-    text: "Je travaille en sprint court avec des validations simples pour transformer une idee floue en page claire et utilisable.",
+    text: "Je travaille en sprint court avec des validations simples pour transformer une idee en interface claire et utilisable.",
   },
   {
     icon: "shield",
-    title: "Accompagnement propre",
-    text: "Chaque choix est explique: structure, design, responsive, contenu, mise en ligne et prochaines ameliorations possibles.",
+    title: "Livraison rassurante",
+    text: "Structure, design, responsive, contenu et mise en ligne sont expliques simplement, avec les prochaines ameliorations possibles.",
   },
 ];
 
 export const services = [
   {
-    icon: "layout",
-    title: "Sites web professionnels",
+    icon: "globe",
+    title: "Creation de site vitrine",
     description:
-      "Sites vitrines, portfolios et pages de vente modernes pour presenter votre activite, rassurer vos clients et generer des demandes.",
+      "Pages modernes pour restaurant, cabinet, artisan, consultant ou service local, avec une offre claire et des appels a l'action visibles.",
   },
   {
-    icon: "layout",
-    title: "Sites WordPress",
+    icon: "wordpress",
+    title: "WordPress administrable",
     description:
-      "Creation, personnalisation et amelioration de sites WordPress pour avoir une solution simple a gerer et facile a faire evoluer.",
+      "Sites faciles a modifier: pages, menu, photos, horaires, articles et contenus essentiels sans toucher au code.",
   },
   {
-    icon: "code",
-    title: "Applications web sur mesure",
+    icon: "dashboard",
+    title: "Dashboard et application web",
     description:
-      "Dashboards, plateformes SaaS, espaces clients et outils metier construits avec React, propres, rapides et evolutifs.",
+      "Espaces clients, tableaux de bord, formulaires internes et outils metier construits avec une interface propre et scalable.",
   },
   {
     icon: "phone",
-    title: "Applications et interfaces mobiles",
+    title: "Interface mobile",
     description:
-      "Experiences mobile-first, prototypes d'apps et interfaces responsive pour offrir une navigation fluide sur tous les ecrans.",
+      "Parcours mobile-first pour reservation, prise de rendez-vous, catalogue de services ou prototype d'application.",
   },
   {
-    icon: "wrench",
-    title: "Maintenance de sites existants",
+    icon: "shield",
+    title: "Maintenance et securite",
     description:
-      "Mises a jour, corrections, securite, contenu, optimisation et support pour garder votre site propre, rapide et fonctionnel.",
+      "Mises a jour, corrections, sauvegardes, surveillance et optimisation pour garder votre site fiable dans le temps.",
   },
   {
-    icon: "spark",
-    title: "Refonte et optimisation",
+    icon: "refresh",
+    title: "Refonte de site",
     description:
-      "Amelioration du design, de la performance, du responsive et des parcours pour rendre votre site plus professionnel.",
+      "Modernisation d'un site existant: design plus credible, textes plus clairs, meilleur responsive et parcours plus efficace.",
   },
 ];
 
@@ -83,38 +83,43 @@ export const expertise = [
 
 export const pricing = [
   {
-    name: "Starter Web",
+    name: "Starter One Page",
+    icon: "globe",
     price: "A partir de 100 EUR",
-    description: "Pour lancer une presence simple, propre et responsive sans perdre de temps.",
-    features: ["1 page professionnelle", "Design responsive", "Section services + contact", "Mise en ligne guidee"],
+    description: "Pour lancer une presence simple et propre rapidement.",
+    features: ["1 page responsive", "Hero + services + contact", "Design clair", "Mise en ligne guidee"],
     highlight: false,
   },
   {
-    name: "Business Premium",
+    name: "Site Business",
+    icon: "spark",
     price: "A partir de 450 EUR",
-    description: "Pour une activite qui veut une image plus forte et une page qui convertit mieux.",
-    features: ["Site multi-sections", "Copywriting commercial", "Animations premium", "SEO technique de base"],
+    description: "Pour une activite qui veut une image plus forte et plus de demandes.",
+    features: ["Site multi-sections", "Contenu structure", "Animations modernes", "SEO technique de base"],
     highlight: true,
   },
   {
-    name: "WordPress",
+    name: "WordPress Admin",
+    icon: "wordpress",
     price: "Sur devis",
-    description: "Pour creer, personnaliser ou ameliorer un site WordPress professionnel et facile a administrer.",
+    description: "Pour un site professionnel que vous pouvez modifier facilement.",
     features: ["Installation WordPress", "Theme personnalise", "Pages essentielles", "Formation rapide"],
     highlight: false,
   },
   {
     name: "Web App / Mobile",
+    icon: "dashboard",
     price: "Sur devis",
-    description: "Pour creer un outil, une plateforme, un dashboard ou une interface mobile sur mesure.",
-    features: ["Architecture React", "Parcours utilisateur", "Interface admin ou client", "Base scalable"],
+    description: "Pour creer un dashboard, un espace client ou une interface mobile.",
+    features: ["Architecture React", "Parcours utilisateur", "Interface admin/client", "Base scalable"],
     highlight: false,
   },
   {
-    name: "Maintenance",
+    name: "Maintenance Care",
+    icon: "shield",
     price: "Forfait mensuel",
-    description: "Pour garder votre site a jour, corriger les problemes et ameliorer sa performance dans le temps.",
-    features: ["Mises a jour", "Corrections techniques", "Securite et sauvegarde", "Support continu"],
+    description: "Pour garder votre site rapide, securise et fonctionnel.",
+    features: ["Mises a jour", "Corrections techniques", "Sauvegardes", "Support continu"],
     highlight: false,
   },
 ];
@@ -261,13 +266,13 @@ export const projectCatalog = [
     },
     description:
       "Exemple de maintenance pour une boutique en ligne: mises a jour, corrections, sauvegardes, vitesse et verification du parcours d'achat.",
-    image: "/project-images/maintenance-boutique-en-ligne.png",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=88",
     gallery: [
-      "/project-images/maintenance-boutique-en-ligne.png",
-      "/project-images/maintenance-boutique-performance.png",
-      "/project-images/maintenance-boutique-checkout.png",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=88",
     ],
-    imageAlt: "Client utilisant un ordinateur pour acheter en ligne dans une boutique e-commerce",
+    imageAlt: "Bureau e-commerce reel avec ordinateur pour illustrer la maintenance d'une boutique en ligne",
     imagePosition: "center",
     challenge: "Eviter les bugs, les lenteurs, les plugins obsoletes et les interruptions qui coutent des ventes.",
     solution: "Mises a jour controlees, sauvegardes, corrections, optimisation responsive et support regulier.",
@@ -423,7 +428,7 @@ export const faqs = [
   },
 ];
 
-export const projectTypes = ["Site web", "Site WordPress", "Application web", "Application mobile", "Maintenance", "Refonte"];
+export const projectTypes = ["Site vitrine", "WordPress", "Dashboard / app web", "Interface mobile", "Maintenance", "Refonte"];
 export const budgets = ["100 - 450 EUR", "1 000 - 3 000 EUR", "3 000 - 7 000 EUR", "7 000 EUR et plus"];
 export const timelines = ["Le plus vite possible", "2 a 4 semaines", "1 a 2 mois", "Planning flexible"];
 

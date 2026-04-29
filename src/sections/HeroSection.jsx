@@ -5,7 +5,7 @@ import { Button, GlassCard, GradientText, Icon } from "../components";
 export default function HeroSection({ motionConfig }) {
   return (
     <section className="relative min-h-screen overflow-hidden border-b border-white/10">
-      <div className={`absolute inset-0 ${pageGradient}`} />
+      <div className={`animated-aurora absolute inset-0 ${pageGradient}`} />
       <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:84px_84px]" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#05070b] to-transparent" />
 
@@ -17,7 +17,7 @@ export default function HeroSection({ motionConfig }) {
           href="#contact"
           className="mb-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-lime-300/20 bg-lime-300/10 px-4 py-2 text-center text-sm font-black text-lime-100 shadow-lg shadow-lime-500/10 backdrop-blur-2xl transition hover:border-lime-300/45 hover:bg-lime-300/15"
         >
-          Creez votre site a partir de 100 euros
+          Site professionnel a partir de 100 EUR
           <Icon name="arrow" className="h-4 w-4" />
         </motion.a>
 
@@ -68,7 +68,7 @@ function HeroContent({ motionConfig }) {
         className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-bold text-slate-100 shadow-lg shadow-black/20 backdrop-blur-xl"
       >
         <span className="h-2 w-2 rounded-full bg-lime-300 shadow-[0_0_18px_rgba(190,242,100,0.9)]" />
-        Freelance web pour sites, WordPress, applications et maintenance
+        Creation web pour independants, commerces et petites entreprises
       </motion.div>
 
       <motion.h1
@@ -76,7 +76,7 @@ function HeroContent({ motionConfig }) {
         transition={motionConfig.transition}
         className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
       >
-        Je cree des sites web et applications qui <GradientText>vendent vos services.</GradientText>
+        Je cree des sites et outils web qui <GradientText>donnent envie de vous contacter.</GradientText>
       </motion.h1>
 
       <motion.p
@@ -84,14 +84,14 @@ function HeroContent({ motionConfig }) {
         transition={motionConfig.transition}
         className="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg"
       >
-        Un service complet pour concevoir et developper votre site vitrine, votre application web ou votre experience
-        mobile avec un design premium, rapide et oriente conversion.
+        Site vitrine, WordPress, dashboard, mobile ou maintenance: je transforme votre besoin en interface claire,
+        responsive et facile a faire evoluer.
       </motion.p>
 
       <motion.div variants={fadeUp} transition={motionConfig.transition} className="mt-7 flex flex-col gap-3 sm:flex-row">
         <Button>Demander mon devis</Button>
         <Button href="#contact" variant="secondary">
-          Expliquer mon besoin
+          Voir les possibilites
         </Button>
       </motion.div>
 
@@ -122,10 +122,10 @@ function HeroPreview({ motionConfig }) {
         Site des 100 EUR
       </FloatingBadge>
       <FloatingBadge motionConfig={motionConfig} delay={0.7} className="-right-4 bottom-20 text-violet-100">
-        Reponse sous 24h
+        Retour sous 24h
       </FloatingBadge>
 
-      <GlassCard className="rounded-3xl p-3">
+      <GlassCard className="float-soft rounded-3xl p-3">
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#080b12]">
           <PreviewHeader />
           <div className="grid gap-4 p-4 sm:p-5">
@@ -155,8 +155,8 @@ function PreviewHeader() {
   return (
     <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.04] px-5 py-4">
       <div>
-        <p className="text-sm font-black text-white">Votre projet digital</p>
-        <p className="text-xs text-slate-400">Site web, WordPress, app ou maintenance</p>
+        <p className="text-sm font-black text-white">Votre projet web</p>
+        <p className="text-xs text-slate-400">Site, WordPress, dashboard ou maintenance</p>
       </div>
       <div className="flex gap-1.5">
         <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
@@ -178,7 +178,7 @@ function PricePreview({ motionConfig }) {
         <p className="pb-2 text-sm font-bold text-lime-300">depart</p>
       </div>
       <p className="mt-3 text-sm leading-6 text-slate-400">
-        Une premiere version propre pour lancer votre presence en ligne rapidement.
+        Une base professionnelle pour etre visible vite, avec un design responsive et un contact clair.
       </p>
       <div className="mt-6 h-3 overflow-hidden rounded-full bg-white/10">
         <motion.div
@@ -194,7 +194,7 @@ function PricePreview({ motionConfig }) {
 function OfferPreview({ motionConfig }) {
   return (
     <motion.div whileHover={motionConfig.hoverLift} className="rounded-2xl border border-cyan-300/15 bg-cyan-300/10 p-5 backdrop-blur-xl">
-      <p className="text-sm font-black text-white">Focus sprint</p>
+      <p className="text-sm font-black text-white">Services rapides</p>
       <div className="mt-5 space-y-3">
         {heroOffers.map((item) => (
           <div key={item} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-3 py-2 text-sm font-bold text-slate-100">

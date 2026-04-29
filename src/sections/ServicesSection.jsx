@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeUp, glassBase, services } from "../data";
+import { glassBase, scaleIn, services } from "../data";
 import { AnimatedSection, Icon, SectionHeader } from "../components";
 
 export default function ServicesSection({ motionConfig }) {
@@ -12,8 +12,8 @@ export default function ServicesSection({ motionConfig }) {
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Services"
-          title="Creation de sites web, WordPress, applications et maintenance."
-          description="Vous obtenez un service complet pour creer, ameliorer ou maintenir votre presence digitale, du site simple a l'application sur mesure."
+          title="Un service web clair, de la premiere page au dashboard."
+          description="Choisissez le format adapte a votre activite: site vitrine, WordPress, application web, mobile, maintenance ou refonte."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
@@ -28,9 +28,10 @@ export default function ServicesSection({ motionConfig }) {
 function ServiceCard({ service, motionConfig }) {
   return (
     <motion.article
-      variants={fadeUp}
+      variants={scaleIn}
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
+      whileTap={motionConfig.tapPress}
       className={`group rounded-2xl p-6 transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
     >
       <div className="grid h-12 w-12 place-items-center rounded-xl bg-lime-300 text-slate-950 shadow-lg shadow-lime-500/20 transition duration-300 group-hover:scale-105">

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="font-black text-white">{brandName}</p>
-          <p className="mt-1">Creation de sites web, WordPress, applications web, mobile et maintenance.</p>
+          <p className="mt-1">Sites vitrines, WordPress, dashboards, mobile, refonte et maintenance.</p>
         </div>
         <div className="flex flex-wrap gap-4 font-semibold">
           {navItems.map(({ label, href }) => (

@@ -4,7 +4,7 @@ export const pageGradient =
 export const sectionBase = "relative px-5 py-16 sm:px-8 sm:py-20 lg:px-10";
 
 export const glassBase =
-  "border border-white/10 bg-[#0d1118]/85 shadow-[0_24px_80px_rgba(0,0,0,0.32)] backdrop-blur-xl";
+  "motion-card border border-white/10 bg-[#0d1118]/85 shadow-[0_24px_80px_rgba(0,0,0,0.32)] backdrop-blur-xl";
 
 export const inputClass =
   "mt-2 w-full rounded-xl border border-white/10 bg-[#080b12] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-lime-300/70 focus:ring-4 focus:ring-lime-300/10";

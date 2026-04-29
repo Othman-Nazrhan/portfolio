@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeUp, featuredProjects, glassBase } from "../data";
+import { featuredProjects, glassBase, scaleIn } from "../data";
 import { AnimatedSection, Button, Icon, SectionHeader } from "../components";
 import { getProjectImageSrcSet, setImageWidth } from "../utils";
 
@@ -30,9 +30,10 @@ export default function ProjectsSection({ motionConfig }) {
 function ProjectCard({ project, motionConfig }) {
   return (
     <motion.article
-      variants={fadeUp}
+      variants={scaleIn}
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
+      whileTap={motionConfig.tapPress}
       className={`overflow-hidden rounded-2xl transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
     >
       <div className="p-5">
@@ -42,7 +43,7 @@ function ProjectCard({ project, motionConfig }) {
             srcSet={getProjectImageSrcSet(project.image)}
             sizes="(min-width: 1024px) 31vw, 100vw"
             alt={project.imageAlt}
-            className="aspect-[16/11] w-full object-cover saturate-110 transition duration-500 hover:scale-105"
+            className="motion-media aspect-[16/11] w-full object-cover saturate-110"
             style={{ objectPosition: project.imagePosition }}
             loading="lazy"
             decoding="async"
