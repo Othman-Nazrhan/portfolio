@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useMotionSettings } from "./hooks";
 import { brandName, navItems } from "./data";
-import {
-  ContactSection,
-  CtaSection,
-  Footer,
-  FreelancerSection,
-  HeroSection,
-  PricingSection,
-  ProjectsPageSection,
-  ProjectsSection,
-  ServicesSection,
-} from "./sections";
+import ContactSection from "./sections/ContactSection.jsx";
+import CtaSection from "./sections/CtaSection.jsx";
+import Footer from "./sections/Footer.jsx";
+import FreelancerSection from "./sections/FreelancerSection.jsx";
+import HeroSection from "./sections/HeroSection.jsx";
+import PricingSection from "./sections/PricingSection.jsx";
+import ProjectsSection from "./sections/ProjectsSection.jsx";
+import ServicesSection from "./sections/ServicesSection.jsx";
+
+const ProjectsPageSection = lazy(() => import("./sections/ProjectsPageSection.jsx"));
 
 const animatedSections = [
   HeroSection,
@@ -88,10 +87,22 @@ function PortfolioPage({ motionConfig }) {
   return (
     <>
       <PortfolioNav />
-      <ProjectsPageSection motionConfig={motionConfig} />
+      <Suspense fallback={<PortfolioFallback />}>
+        <ProjectsPageSection motionConfig={motionConfig} />
+      </Suspense>
       <CtaSection motionConfig={motionConfig} />
       <Footer />
     </>
+  );
+}
+
+function PortfolioFallback() {
+  return (
+    <section className="relative px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
+      <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-sm font-bold text-slate-300">
+        Chargement du portfolio...
+      </div>
+    </section>
   );
 }
 

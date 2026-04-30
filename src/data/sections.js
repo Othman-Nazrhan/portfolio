@@ -266,13 +266,13 @@ export const projectCatalog = [
     },
     description:
       "Exemple de maintenance pour une boutique en ligne: mises a jour, corrections, sauvegardes, vitesse et verification du parcours d'achat.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=88",
+    image: "https://images.pexels.com/photos/4968386/pexels-photo-4968386.jpeg?auto=compress&cs=tinysrgb&w=1600",
     gallery: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=88",
+      "https://images.pexels.com/photos/4968386/pexels-photo-4968386.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/5585793/pexels-photo-5585793.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/6956800/pexels-photo-6956800.jpeg?auto=compress&cs=tinysrgb&w=1600",
     ],
-    imageAlt: "Bureau e-commerce reel avec ordinateur pour illustrer la maintenance d'une boutique en ligne",
+    imageAlt: "Personne utilisant un ordinateur portable et une carte bancaire pour une boutique en ligne",
     imagePosition: "center",
     challenge: "Eviter les bugs, les lenteurs, les plugins obsoletes et les interruptions qui coutent des ventes.",
     solution: "Mises a jour controlees, sauvegardes, corrections, optimisation responsive et support regulier.",
@@ -313,7 +313,38 @@ export const projectCatalog = [
   },
 ];
 
-export const featuredProjects = projectCatalog.slice(0, 3);
+export const featuredProjects = [
+  {
+    title: "Site vitrine pour restaurant",
+    type: "Creation site web",
+    result: "+62% reservations",
+    description:
+      "Exemple de site vitrine pour un restaurant: ambiance, menu, horaires, galerie photo, carte Google Maps et bouton de reservation visible.",
+    image: "/project-images/creation-site-web-restaurant.png",
+    imageAlt: "Restaurant chaleureux avec tables preparees pour illustrer un site vitrine",
+    imagePosition: "center",
+  },
+  {
+    title: "Dashboard pour agence immobiliere",
+    type: "Application web",
+    result: "2.4x plus rapide",
+    description:
+      "Exemple d'application web pour une agence immobiliere: biens, demandes clients, visites, statuts et suivi commercial dans un seul espace.",
+    image: "/project-images/application-web-immobilier.png",
+    imageAlt: "Maison moderne representant une application web pour agence immobiliere",
+    imagePosition: "center",
+  },
+  {
+    title: "App mobile pour salon de beaute",
+    type: "Interface app mobile",
+    result: "-31% friction",
+    description:
+      "Exemple d'interface mobile pour un salon de beaute: choix du service, disponibilites, reservation et rappel de rendez-vous.",
+    image: "/project-images/mobile-salon-beaute.png",
+    imageAlt: "Salon de beaute moderne pour illustrer une application mobile de reservation",
+    imagePosition: "center",
+  },
+];
 
 export const outcomes = [
   {
