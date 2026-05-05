@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { brandName, fadeUp, heroOffers, metrics, navItems, pageGradient, processSteps, stagger } from "../data";
-import { Button, GlassCard, GradientText, Icon } from "../components";
+import { BrandLogo, Button, GlassCard, GradientText, Icon } from "../components";
 
 export default function HeroSection({ motionConfig }) {
   return (
@@ -15,7 +15,7 @@ export default function HeroSection({ motionConfig }) {
           animate={{ opacity: 1, y: 0 }}
           transition={motionConfig.transition}
           href="#contact"
-          className="mb-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-lime-300/20 bg-lime-300/10 px-4 py-2 text-center text-sm font-black text-lime-100 shadow-lg shadow-lime-500/10 backdrop-blur-2xl transition hover:border-lime-300/45 hover:bg-lime-300/15"
+          className="mb-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-center text-sm font-black text-blue-100 shadow-lg shadow-blue-500/10 backdrop-blur-2xl transition hover:border-blue-500/45 hover:bg-blue-500/15"
         >
           Site professionnel a partir de 100 EUR
           <Icon name="arrow" className="h-4 w-4" />
@@ -35,16 +35,13 @@ export default function HeroSection({ motionConfig }) {
 function HeaderNav() {
   return (
     <nav className="flex items-center justify-between gap-4">
-      <a href="#" className="flex items-center gap-3 font-bold tracking-tight text-white">
-        <span className="grid h-10 w-10 place-items-center rounded-xl bg-lime-300 text-sm font-black text-slate-950 shadow-lg shadow-lime-500/20">
-          DS
-        </span>
-        {brandName}
+      <a href="#" className="flex items-center text-white" aria-label={brandName}>
+        <BrandLogo />
       </a>
 
       <div className="hidden items-center gap-5 rounded-2xl border border-white/10 bg-[#0b0f16]/80 px-5 py-3 text-sm font-semibold text-slate-300 shadow-2xl shadow-black/20 backdrop-blur-2xl lg:flex xl:gap-7">
         {navItems.map((item) => (
-          <a key={item.href} href={item.href} className="transition hover:text-lime-200">
+          <a key={item.href} href={item.href} className="transition hover:text-sky-200">
             {item.label}
           </a>
         ))}
@@ -52,7 +49,7 @@ function HeaderNav() {
 
       <a
         href="#contact"
-        className="rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2 text-sm font-bold text-white backdrop-blur-xl transition hover:border-lime-300/50 hover:bg-white/12"
+        className="rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2 text-sm font-bold text-white backdrop-blur-xl transition hover:border-blue-500/50 hover:bg-white/12"
       >
         Devis
       </a>
@@ -67,7 +64,7 @@ function HeroContent({ motionConfig }) {
         transition={motionConfig.transition}
         className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-bold text-slate-100 shadow-lg shadow-black/20 backdrop-blur-xl"
       >
-        <span className="h-2 w-2 rounded-full bg-lime-300 shadow-[0_0_18px_rgba(190,242,100,0.9)]" />
+        <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_18px_rgba(0,132,255,0.9)]" />
         Creation web pour independants, commerces et petites entreprises
       </motion.div>
 
@@ -76,7 +73,7 @@ function HeroContent({ motionConfig }) {
         transition={motionConfig.transition}
         className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
       >
-        Je cree des sites et outils web qui <GradientText>donnent envie de vous contacter.</GradientText>
+        Transformez vos visiteurs en clients avec un <GradientText>site web moderne.</GradientText>
       </motion.h1>
 
       <motion.p
@@ -102,7 +99,7 @@ function HeroContent({ motionConfig }) {
       >
         {metrics.map((item) => (
           <GlassCard key={item.label} className="rounded-2xl p-5">
-            <p className="text-2xl font-black tracking-tight text-lime-100">{item.value}</p>
+            <p className="text-2xl font-black tracking-tight text-blue-100">{item.value}</p>
             <p className="mt-2 text-sm leading-6 text-slate-400">{item.label}</p>
           </GlassCard>
         ))}
@@ -118,10 +115,10 @@ function HeroPreview({ motionConfig }) {
       transition={{ ...motionConfig.transition, delay: motionConfig.reduceMotion ? 0 : 0.2 }}
       className="relative"
     >
-      <FloatingBadge motionConfig={motionConfig} className="-left-5 top-12 text-emerald-100">
+      <FloatingBadge motionConfig={motionConfig} className="-left-5 top-12 text-blue-100">
         Site des 100 EUR
       </FloatingBadge>
-      <FloatingBadge motionConfig={motionConfig} delay={0.7} className="-right-4 bottom-20 text-violet-100">
+      <FloatingBadge motionConfig={motionConfig} delay={0.7} className="-right-4 bottom-20 text-sky-100">
         Retour sous 24h
       </FloatingBadge>
 
@@ -161,7 +158,7 @@ function PreviewHeader() {
       <div className="flex gap-1.5">
         <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-        <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
+        <span className="h-2.5 w-2.5 rounded-full bg-blue-400" />
       </div>
     </div>
   );
@@ -171,11 +168,11 @@ function PricePreview({ motionConfig }) {
     <motion.div whileHover={motionConfig.hoverLift} className="rounded-2xl border border-white/10 bg-[#10151f] p-5 backdrop-blur-xl">
       <div className="flex items-center justify-between">
         <p className="text-sm font-bold text-slate-200">Prix de depart</p>
-        <Icon name="euro" className="h-5 w-5 text-lime-300" />
+        <Icon name="euro" className="h-5 w-5 text-blue-500" />
       </div>
       <div className="mt-7 flex items-end gap-3">
         <p className="text-4xl font-black tracking-tight text-white">100 EUR</p>
-        <p className="pb-2 text-sm font-bold text-lime-300">depart</p>
+        <p className="pb-2 text-sm font-bold text-blue-500">depart</p>
       </div>
       <p className="mt-3 text-sm leading-6 text-slate-400">
         Une base professionnelle pour etre visible vite, avec un design responsive et un contact clair.
@@ -185,7 +182,7 @@ function PricePreview({ motionConfig }) {
           initial={{ width: "24%" }}
           animate={{ width: "74%" }}
           transition={{ duration: motionConfig.reduceMotion ? 0 : 1.2, delay: 0.4 }}
-          className="h-full rounded-full bg-gradient-to-r from-lime-300 to-cyan-300"
+          className="h-full rounded-full bg-gradient-to-r from-blue-500 to-sky-400"
         />
       </div>
     </motion.div>
@@ -193,12 +190,12 @@ function PricePreview({ motionConfig }) {
 }
 function OfferPreview({ motionConfig }) {
   return (
-    <motion.div whileHover={motionConfig.hoverLift} className="rounded-2xl border border-cyan-300/15 bg-cyan-300/10 p-5 backdrop-blur-xl">
+    <motion.div whileHover={motionConfig.hoverLift} className="rounded-2xl border border-sky-400/15 bg-sky-400/10 p-5 backdrop-blur-xl">
       <p className="text-sm font-black text-white">Services rapides</p>
       <div className="mt-5 space-y-3">
         {heroOffers.map((item) => (
           <div key={item} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-3 py-2 text-sm font-bold text-slate-100">
-            <Icon name="check" className="h-4 w-4 text-lime-300" />
+            <Icon name="check" className="h-4 w-4 text-blue-500" />
             {item}
           </div>
         ))}
@@ -215,7 +212,7 @@ function ProcessPreview({ motionConfig }) {
           whileHover={motionConfig.hoverLift}
           className="rounded-2xl border border-white/10 bg-white/[0.045] p-4 backdrop-blur-xl"
         >
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-lime-300">{item.step}</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-500">{item.step}</p>
           <p className="mt-3 font-bold text-white">{item.title}</p>
           <p className="mt-2 text-sm leading-6 text-slate-400">{item.text}</p>
         </motion.div>

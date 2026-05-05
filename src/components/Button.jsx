@@ -10,9 +10,9 @@ export default function Button({
 }) {
   const variants = {
     primary:
-      "bg-lime-300 text-slate-950 shadow-[0_18px_44px_rgba(190,242,100,0.22)] hover:-translate-y-0.5 hover:bg-lime-200 focus-visible:ring-lime-300",
+      "bg-blue-500 text-white shadow-[0_18px_44px_rgba(0,132,255,0.22)] hover:-translate-y-0.5 hover:bg-blue-400 focus-visible:ring-blue-500",
     secondary:
-      "border border-white/12 bg-white/[0.04] text-white backdrop-blur-xl hover:-translate-y-0.5 hover:border-cyan-300/45 hover:bg-white/[0.08] focus-visible:ring-cyan-300",
+      "border border-white/12 bg-white/[0.04] text-white backdrop-blur-xl hover:-translate-y-0.5 hover:border-sky-400/45 hover:bg-white/[0.08] focus-visible:ring-sky-400",
   };
 
   const Component = type ? motion.button : motion.a;

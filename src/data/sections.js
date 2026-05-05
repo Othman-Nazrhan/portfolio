@@ -137,7 +137,7 @@ export const projectCatalog = [
       name: "Maison Verde",
       initials: "MV",
       industry: "Restaurant mediterraneen",
-      accent: "from-emerald-300 to-lime-200",
+      accent: "from-blue-400 to-sky-200",
       assets: ["Logo", "Palette", "Maquette PSD"],
     },
     description:
@@ -168,7 +168,7 @@ export const projectCatalog = [
       name: "Nova Habitat",
       initials: "NH",
       industry: "Agence immobiliere",
-      accent: "from-sky-300 to-cyan-200",
+      accent: "from-sky-300 to-sky-200",
       assets: ["Logo", "Dashboard", "Maquette PSD"],
     },
     description:
@@ -292,7 +292,7 @@ export const projectCatalog = [
       name: "Clinique Nova",
       initials: "CN",
       industry: "Cabinet dentaire",
-      accent: "from-cyan-200 to-blue-200",
+      accent: "from-sky-200 to-blue-200",
       assets: ["Logo", "Refonte", "Maquette PSD"],
     },
     description:

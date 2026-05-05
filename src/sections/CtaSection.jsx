@@ -5,7 +5,7 @@ import { Button } from "../components";
 export default function CtaSection({ motionConfig }) {
   return (
     <section className={sectionBase}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_40%,rgba(52,211,153,0.12),transparent_28%),radial-gradient(circle_at_78%_40%,rgba(34,211,238,0.12),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_40%,rgba(0,132,255,0.12),transparent_28%),radial-gradient(circle_at_78%_40%,rgba(0,102,255,0.12),transparent_28%)]" />
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -15,7 +15,7 @@ export default function CtaSection({ motionConfig }) {
       >
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <motion.div variants={fadeUp} transition={motionConfig.transition}>
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-lime-200">Lancer votre projet</p>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Lancer votre projet</p>
             <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">
               Pret a transformer votre idee en site clair et credible?
             </h2>

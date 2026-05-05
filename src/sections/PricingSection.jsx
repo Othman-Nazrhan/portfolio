@@ -8,7 +8,7 @@ export default function PricingSection({ motionConfig }) {
       id="pricing"
       motionConfig={motionConfig}
       className="border-y border-white/10 bg-white/[0.03]"
-      background="bg-[radial-gradient(circle_at_22%_30%,rgba(34,211,238,0.13),transparent_28%),radial-gradient(circle_at_78%_64%,rgba(167,139,250,0.12),transparent_30%)]"
+      background="bg-[radial-gradient(circle_at_22%_30%,rgba(0,102,255,0.13),transparent_28%),radial-gradient(circle_at_78%_64%,rgba(0,102,255,0.12),transparent_30%)]"
     >
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
@@ -38,15 +38,15 @@ function PricingCard({ plan, motionConfig }) {
       whileHover={motionConfig.hoverLift}
       whileTap={motionConfig.tapPress}
       className={`relative rounded-2xl border p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-300 ${
-        plan.highlight ? "border-lime-300/40 bg-lime-300/10" : "border-white/10 bg-[#0d1118]/85 hover:border-lime-300/30"
+        plan.highlight ? "border-blue-500/40 bg-blue-500/10" : "border-white/10 bg-[#0d1118]/85 hover:border-blue-500/30"
       }`}
     >
       {plan.highlight && (
-        <div className="absolute right-5 top-5 rounded-lg bg-lime-300 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-slate-950">
+        <div className="absolute right-5 top-5 rounded-lg bg-blue-500 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-white">
           populaire
         </div>
       )}
-      <div className="grid h-12 w-12 place-items-center rounded-xl bg-lime-300 text-slate-950">
+      <div className="grid h-12 w-12 place-items-center rounded-xl bg-blue-500 text-white">
         <Icon name={plan.icon ?? (plan.highlight ? "bolt" : "euro")} />
       </div>
       <h3 className="mt-6 text-xl font-black tracking-tight text-white">{plan.name}</h3>
@@ -59,7 +59,7 @@ function PricingCard({ plan, motionConfig }) {
       </div>
       <a
         href="#contact"
-        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-5 py-3 text-sm font-black text-white transition hover:border-lime-300/50 hover:bg-white/12"
+        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-5 py-3 text-sm font-black text-white transition hover:border-blue-500/50 hover:bg-white/12"
       >
         Choisir cette offre
         <Icon name="arrow" className="h-4 w-4" />

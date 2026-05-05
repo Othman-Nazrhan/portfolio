@@ -92,5 +92,18 @@ export const iconPaths = {
     createElement("path", { d: "M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5L15 12l-3-3 2.7-2.7Z" }),
     createElement("path", { d: "m7 17 2 2" }),
   ),
+  star: createElement("path", { d: "m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6-5.4-2.9-5.4 2.9 1-6-4.4-4.3 6.1-.9L12 3Z" }),
+  instagram: createElement(
+    "g",
+    null,
+    createElement("rect", { x: 4, y: 4, width: 16, height: 16, rx: 5 }),
+    createElement("circle", { cx: 12, cy: 12, r: 3.5 }),
+    createElement("path", { d: "M16.8 7.2h.01" }),
+  ),
+  linkedin: createElement(
+    "g",
+    null,
+    createElement("path", { d: "M6.5 10v8M6.5 6.5v.01M10.5 18v-8M10.5 13.5c0-2.2 1.2-3.7 3.3-3.7 2 0 3.2 1.3 3.2 3.7V18" }),
+  ),
 };
 

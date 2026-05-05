@@ -8,7 +8,7 @@ export default function FaqSection({ motionConfig }) {
       id="faq"
       motionConfig={motionConfig}
       className="border-y border-white/10 bg-white/[0.03]"
-      background="bg-[radial-gradient(circle_at_78%_30%,rgba(34,211,238,0.12),transparent_30%)]"
+      background="bg-[radial-gradient(circle_at_78%_30%,rgba(0,102,255,0.12),transparent_30%)]"
     >
       <div className="relative mx-auto max-w-5xl">
         <SectionHeader
@@ -22,11 +22,11 @@ export default function FaqSection({ motionConfig }) {
               key={item.question}
               variants={fadeUp}
               transition={motionConfig.transition}
-              className="group rounded-2xl border border-white/10 bg-[#0d1118]/85 p-6 backdrop-blur-xl open:border-lime-300/35"
+              className="group rounded-2xl border border-white/10 bg-[#0d1118]/85 p-6 backdrop-blur-xl open:border-blue-500/35"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-black text-white">
                 {item.question}
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/10 text-lime-200 transition group-open:rotate-45">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/10 text-sky-200 transition group-open:rotate-45">
                   +
                 </span>
               </summary>

@@ -1,26 +1,12 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import { useMotionSettings } from "./hooks";
 import { brandName, navItems } from "./data";
-import ContactSection from "./sections/ContactSection.jsx";
+import { BrandLogo } from "./components";
 import CtaSection from "./sections/CtaSection.jsx";
 import Footer from "./sections/Footer.jsx";
-import FreelancerSection from "./sections/FreelancerSection.jsx";
-import HeroSection from "./sections/HeroSection.jsx";
-import PricingSection from "./sections/PricingSection.jsx";
-import ProjectsSection from "./sections/ProjectsSection.jsx";
-import ServicesSection from "./sections/ServicesSection.jsx";
+import PremiumLanding from "./sections/PremiumLanding.jsx";
 
 const ProjectsPageSection = lazy(() => import("./sections/ProjectsPageSection.jsx"));
-
-const animatedSections = [
-  HeroSection,
-  ServicesSection,
-  FreelancerSection,
-  PricingSection,
-  ProjectsSection,
-  CtaSection,
-  ContactSection,
-];
 
 export default function App() {
   const motionConfig = useMotionSettings();
@@ -73,14 +59,7 @@ export default function App() {
 }
 
 function HomePage({ motionConfig }) {
-  return (
-    <>
-      {animatedSections.map((Section) => (
-        <Section key={Section.name} motionConfig={motionConfig} />
-      ))}
-      <Footer />
-    </>
-  );
+  return <PremiumLanding motionConfig={motionConfig} />;
 }
 
 function PortfolioPage({ motionConfig }) {
@@ -110,16 +89,13 @@ function PortfolioNav() {
   return (
     <nav className="sticky top-0 z-40 border-b border-white/10 bg-[#05070b]/88 px-5 py-4 backdrop-blur-2xl sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-        <a href="/" className="flex items-center gap-3 font-bold tracking-tight text-white">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-lime-300 text-sm font-black text-slate-950 shadow-lg shadow-lime-500/20">
-            DS
-          </span>
-          {brandName}
+        <a href="/" className="flex items-center text-white" aria-label={brandName}>
+          <BrandLogo compact />
         </a>
 
         <div className="hidden items-center gap-5 text-sm font-semibold text-slate-300 md:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-lime-200">
+            <a key={item.href} href={item.href} className="transition hover:text-sky-200">
               {item.label}
             </a>
           ))}
@@ -127,7 +103,7 @@ function PortfolioNav() {
 
         <a
           href="/#contact"
-          className="rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2 text-sm font-bold text-white backdrop-blur-xl transition hover:border-lime-300/50 hover:bg-white/12"
+          className="rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2 text-sm font-bold text-white backdrop-blur-xl transition hover:border-blue-500/50 hover:bg-white/12"
         >
           Devis
         </a>

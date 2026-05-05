@@ -29,7 +29,7 @@ export default function ContactSection({ motionConfig }) {
 function ContactCopy({ motionConfig }) {
   return (
     <motion.div variants={fadeUp} transition={motionConfig.transition}>
-      <p className="text-xs font-black uppercase tracking-[0.2em] text-lime-200">Contact</p>
+      <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Contact</p>
       <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl">
         Dites-moi ce que vous voulez creer, corriger ou ameliorer.
       </h2>
@@ -40,14 +40,14 @@ function ContactCopy({ motionConfig }) {
       <div className="mt-8 space-y-4">
         {contactHighlights.map((item) => (
           <div key={item.label} className="flex items-center gap-3 text-sm font-bold text-slate-200">
-            <span className="grid h-8 w-8 place-items-center rounded-lg border border-lime-300/20 bg-lime-300/10 text-lime-200">
+            <span className="grid h-8 w-8 place-items-center rounded-lg border border-blue-500/20 bg-blue-500/10 text-sky-200">
               <Icon name={item.icon} className="h-4 w-4" />
             </span>
             {item.label}
           </div>
         ))}
       </div>
-      <a href={`mailto:${contactEmail}`} className="mt-8 inline-flex items-center gap-3 font-bold text-white transition hover:text-lime-200">
+      <a href={`mailto:${contactEmail}`} className="mt-8 inline-flex items-center gap-3 font-bold text-white transition hover:text-sky-200">
         <Icon name="mail" className="h-5 w-5" />
         {contactEmail}
       </a>
@@ -89,7 +89,7 @@ function ContactForm({ motionConfig, onSubmit }) {
         />
       </label>
 
-      <p className="mt-4 rounded-xl border border-lime-300/15 bg-lime-300/10 px-4 py-3 text-sm leading-6 text-lime-50">
+      <p className="mt-4 rounded-xl border border-blue-500/15 bg-blue-500/10 px-4 py-3 text-sm leading-6 text-blue-50">
         Reponse claire sous 24h ouvrables avec les prochaines etapes, les points a clarifier et une estimation adaptee
         au projet.
       </p>

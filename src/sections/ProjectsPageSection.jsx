@@ -40,7 +40,7 @@ export default function ProjectsPageSection({ motionConfig }) {
       id="projects-page"
       motionConfig={motionConfig}
       className="border-y border-white/10 bg-[#070a10]"
-      background="bg-[radial-gradient(circle_at_18%_10%,rgba(190,242,100,0.1),transparent_28%),radial-gradient(circle_at_90%_34%,rgba(34,211,238,0.08),transparent_26%)]"
+      background="bg-[radial-gradient(circle_at_18%_10%,rgba(0,132,255,0.1),transparent_28%),radial-gradient(circle_at_90%_34%,rgba(0,102,255,0.08),transparent_26%)]"
     >
       <div className="relative mx-auto max-w-7xl">
         <ProjectPageHeader />
@@ -76,7 +76,7 @@ function ProjectPageHeader() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_0.62fr] lg:items-end">
       <div>
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-lime-200">Portfolio</p>
+        <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Portfolio</p>
         <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
           Des exemples de realisations que vos clients peuvent demander.
         </h2>
@@ -111,8 +111,8 @@ function ProjectFilters({ activeFilter, onChange }) {
             onClick={() => onChange(filter)}
             className={`rounded-xl border px-4 py-2 text-sm font-black transition ${
               isActive
-                ? "border-lime-300 bg-lime-300 text-slate-950"
-                : "border-white/10 bg-white/[0.04] text-slate-300 hover:border-lime-300/40 hover:text-white"
+                ? "border-blue-500 bg-blue-500 text-white"
+                : "border-white/10 bg-white/[0.04] text-slate-300 hover:border-blue-500/40 hover:text-white"
             }`}
           >
             {filter}
@@ -156,7 +156,7 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
 
         <div className="p-6 sm:p-8">
           <ProjectBrand project={project} />
-          <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-lime-200">Projet selectionne</p>
+          <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-sky-200">Projet selectionne</p>
           <h3 className="mt-4 text-2xl font-black tracking-tight text-white">{project.title}</h3>
           <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{project.description}</p>
           <ProjectThumbStrip project={project} />
@@ -170,7 +170,7 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
           <button
             type="button"
             onClick={onOpen}
-            className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-lime-300 px-5 text-sm font-black text-slate-950 transition hover:bg-lime-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-lime-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             Ouvrir la fiche complete
             <Icon name="arrow" className="h-4 w-4" />
@@ -188,7 +188,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
       whileTap={motionConfig.tapPress}
-      className={`overflow-hidden rounded-2xl transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
+      className={`overflow-hidden rounded-2xl transition duration-300 hover:border-blue-500/35 hover:bg-white/[0.08] ${glassBase}`}
     >
       <button type="button" onClick={onOpen} className="group relative block w-full overflow-hidden text-left">
         <img
@@ -213,10 +213,10 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
       <div className="p-6">
           <ProjectBrand project={project} compact />
           <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded-lg border border-lime-300/20 bg-lime-300/10 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-lime-100">
+            <span className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-blue-100">
               {project.category}
             </span>
-            <span className="rounded-lg border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-cyan-100">
+            <span className="rounded-lg border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-sky-100">
               {project.status}
             </span>
           </div>
@@ -236,7 +236,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
           <button
             type="button"
             onClick={onOpen}
-            className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-lime-300 px-5 text-sm font-black text-slate-950 transition hover:bg-lime-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-lime-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
             Lire la fiche projet
             <Icon name="arrow" className="h-4 w-4" />
@@ -363,7 +363,7 @@ function ProjectGallery({ project }) {
               type="button"
               onClick={() => setActiveImage(image)}
               className={`gallery-thumb overflow-hidden rounded-xl border text-left ${
-                isActive ? "border-lime-300 ring-2 ring-lime-300/25" : "border-white/10 hover:border-lime-300/40"
+                isActive ? "border-blue-500 ring-2 ring-blue-500/25" : "border-white/10 hover:border-blue-500/40"
               }`}
             >
               <img
@@ -446,7 +446,7 @@ function ProjectDialog({ project, onClose }) {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <ProjectBrand project={project} />
-                <p className="mt-5 text-xs font-black uppercase tracking-[0.18em] text-lime-200">{project.category}</p>
+                <p className="mt-5 text-xs font-black uppercase tracking-[0.18em] text-sky-200">{project.category}</p>
                 <h3 id="project-dialog-title" className="mt-3 text-2xl font-black tracking-tight text-white">
                   {project.title}
                 </h3>
@@ -454,7 +454,7 @@ function ProjectDialog({ project, onClose }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-xl font-black text-white transition hover:border-lime-300/40 hover:text-lime-200"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-xl font-black text-white transition hover:border-blue-500/40 hover:text-sky-200"
                 aria-label="Fermer la fiche projet"
               >
                 x
@@ -476,7 +476,7 @@ function ProjectDialog({ project, onClose }) {
             <a
               href="/#contact"
               onClick={onClose}
-              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-lime-300 px-5 text-sm font-black text-slate-950 transition hover:bg-lime-200"
+              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400"
             >
               Discuter d'un projet similaire
               <Icon name="arrow" className="h-4 w-4" />

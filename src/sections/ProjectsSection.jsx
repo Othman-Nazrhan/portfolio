@@ -34,7 +34,7 @@ function ProjectCard({ project, motionConfig }) {
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
       whileTap={motionConfig.tapPress}
-      className={`overflow-hidden rounded-2xl transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
+      className={`overflow-hidden rounded-2xl transition duration-300 hover:border-blue-500/35 hover:bg-white/[0.08] ${glassBase}`}
     >
       <div className="p-5">
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#080b12]">
@@ -53,7 +53,7 @@ function ProjectCard({ project, motionConfig }) {
       <div className="p-6 pt-2">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm font-bold text-slate-400">{project.type}</p>
-          <p className="rounded-lg border border-lime-300/20 bg-lime-300/10 px-3 py-1 text-sm font-black text-lime-200">
+          <p className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-sm font-black text-sky-200">
             {project.result}
           </p>
         </div>
@@ -61,7 +61,7 @@ function ProjectCard({ project, motionConfig }) {
         <p className="mt-3 text-sm leading-6 text-slate-300">{project.description}</p>
         <a
           href="/portfolio"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-black text-lime-200 transition hover:text-lime-100"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-black text-sky-200 transition hover:text-blue-100"
         >
           Voir le detail
           <Icon name="arrow" className="h-4 w-4" />

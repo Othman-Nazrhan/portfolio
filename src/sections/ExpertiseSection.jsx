@@ -7,7 +7,7 @@ export default function ExpertiseSection({ motionConfig }) {
     <AnimatedSection id="expertise" motionConfig={motionConfig} className="border-y border-white/10 bg-white/[0.03]">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <motion.div variants={fadeUp} transition={motionConfig.transition}>
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-lime-200">Expertise</p>
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-sky-200">Expertise</p>
           <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
             8 ans a creer des produits web propres pour des marques ambitieuses.
           </h2>
@@ -23,7 +23,7 @@ export default function ExpertiseSection({ motionConfig }) {
               variants={fadeUp}
               transition={motionConfig.transition}
               whileHover={motionConfig.hoverLift}
-              className="rounded-xl border border-white/10 bg-[#0d1118]/85 px-4 py-5 text-sm font-bold text-slate-100 backdrop-blur-xl transition hover:border-lime-300/40 hover:bg-lime-300/10"
+              className="rounded-xl border border-white/10 bg-[#0d1118]/85 px-4 py-5 text-sm font-bold text-slate-100 backdrop-blur-xl transition hover:border-blue-500/40 hover:bg-blue-500/10"
             >
               {item}
             </motion.div>

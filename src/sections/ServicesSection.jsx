@@ -7,7 +7,7 @@ export default function ServicesSection({ motionConfig }) {
     <AnimatedSection
       id="services"
       motionConfig={motionConfig}
-      background="bg-[radial-gradient(circle_at_15%_20%,rgba(34,211,238,0.12),transparent_28%),radial-gradient(circle_at_88%_76%,rgba(52,211,153,0.12),transparent_30%)]"
+      background="bg-[radial-gradient(circle_at_15%_20%,rgba(0,102,255,0.12),transparent_28%),radial-gradient(circle_at_88%_76%,rgba(0,132,255,0.12),transparent_30%)]"
     >
       <div className="relative mx-auto max-w-7xl">
         <SectionHeader
@@ -32,9 +32,9 @@ function ServiceCard({ service, motionConfig }) {
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
       whileTap={motionConfig.tapPress}
-      className={`group rounded-2xl p-6 transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
+      className={`group rounded-2xl p-6 transition duration-300 hover:border-blue-500/35 hover:bg-white/[0.08] ${glassBase}`}
     >
-      <div className="grid h-12 w-12 place-items-center rounded-xl bg-lime-300 text-slate-950 shadow-lg shadow-lime-500/20 transition duration-300 group-hover:scale-105">
+      <div className="grid h-12 w-12 place-items-center rounded-xl bg-blue-500 text-white shadow-lg shadow-blue-500/20 transition duration-300 group-hover:scale-105">
         <Icon name={service.icon} />
       </div>
       <h3 className="mt-6 text-lg font-black tracking-tight text-white">{service.title}</h3>

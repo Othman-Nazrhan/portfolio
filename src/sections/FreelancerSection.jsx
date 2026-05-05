@@ -8,7 +8,7 @@ export default function FreelancerSection({ motionConfig }) {
       id="freelance"
       motionConfig={motionConfig}
       className="border-y border-white/10 bg-white/[0.025]"
-      background="bg-[radial-gradient(circle_at_12%_20%,rgba(52,211,153,0.12),transparent_30%),radial-gradient(circle_at_88%_40%,rgba(34,211,238,0.12),transparent_28%)]"
+      background="bg-[radial-gradient(circle_at_12%_20%,rgba(0,132,255,0.12),transparent_30%),radial-gradient(circle_at_88%_40%,rgba(0,102,255,0.12),transparent_28%)]"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -25,9 +25,9 @@ export default function FreelancerSection({ motionConfig }) {
               transition={motionConfig.transition}
               whileHover={motionConfig.hoverLift}
               whileTap={motionConfig.tapPress}
-              className={`rounded-2xl p-6 transition duration-300 hover:border-lime-300/35 hover:bg-white/[0.08] ${glassBase}`}
+              className={`rounded-2xl p-6 transition duration-300 hover:border-blue-500/35 hover:bg-white/[0.08] ${glassBase}`}
             >
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-lime-300 text-slate-950 shadow-lg shadow-lime-500/20">
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-blue-500 text-white shadow-lg shadow-blue-500/20">
                 <Icon name={item.icon} className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-black tracking-tight text-white">{item.title}</h3>
@@ -39,7 +39,7 @@ export default function FreelancerSection({ motionConfig }) {
         <motion.div
           variants={fadeUp}
           transition={motionConfig.transition}
-          className="mt-10 rounded-2xl border border-lime-300/15 bg-lime-300/10 p-5 text-sm font-bold leading-6 text-lime-50 sm:p-6"
+          className="mt-10 rounded-2xl border border-blue-500/15 bg-blue-500/10 p-5 text-sm font-bold leading-6 text-blue-50 sm:p-6"
         >
           Ideal pour independants, petites entreprises, createurs de services, artisans, consultants et porteurs de
           projet qui veulent un site clair sans process lourd.

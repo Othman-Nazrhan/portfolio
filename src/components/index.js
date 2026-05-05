@@ -1,5 +1,6 @@
 export { default as AnimatedSection } from "./AnimatedSection.jsx";
 export { default as Button } from "./Button.jsx";
+export { default as BrandLogo } from "./BrandLogo.jsx";
 export { default as CheckItem } from "./CheckItem.jsx";
 export { default as GlassCard } from "./GlassCard.jsx";
 export { default as GradientText } from "./GradientText.jsx";
