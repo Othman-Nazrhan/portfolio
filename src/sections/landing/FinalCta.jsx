@@ -1,7 +1,6 @@
 import { Icon } from "../../components";
-import { landingCtaBadges } from "../../data";
-import { SecondaryButton } from "./LandingButton.jsx";
-import { ProjectDialogButton } from "./ProjectDialog.jsx";
+import { landingCtaBadges } from "../../data/landing.js";
+import { PrimaryButton, SecondaryButton } from "./LandingButton.jsx";
 
 export default function FinalCta() {
   return (
@@ -12,14 +11,14 @@ export default function FinalCta() {
         </div>
         <div>
           <h2 className="max-w-xl text-2xl font-black leading-tight text-white sm:text-3xl">
-            Pr&ecirc;t &agrave; transformer votre id&eacute;e en un site qui travaille pour vous ?
+            Prêt à transformer votre idée en un site web performant ?
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-7 text-slate-400">
-            Parlons de votre activit&eacute;, de vos objectifs et du site qui peut vous aider &agrave; gagner en cr&eacute;dibilit&eacute;.
+            Discutons ensemble de votre projet et créons une présence en ligne moderne et efficace.
           </p>
         </div>
         <div className="flex flex-col gap-3">
-          <ProjectDialogButton />
+          <PrimaryButton href="#contact">Discutons de votre projet</PrimaryButton>
           <SecondaryButton href="#services">En savoir plus</SecondaryButton>
         </div>
         <div className="grid gap-3 text-xs text-slate-400 sm:grid-cols-3 md:grid-cols-1">

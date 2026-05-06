@@ -1,35 +1,40 @@
-# Refactoring Progress
+## Task: Update Landing Page to Exact French Content Specs
 
-## Phase 1: Create Data Modules (split content.js)
-- [x] Create src/data/brand.js
-- [x] Create src/data/navigation.js
-- [x] Create src/data/animations.js
-- [x] Create src/data/styles.js
-- [x] Create src/data/icons.js
-- [x] Create src/data/sections.js
-- [x] Create src/data/index.js (barrel)
+### Plan Breakdown into Steps:
 
-## Phase 2: Create Barrel Exports
-- [x] Create src/components/index.js
-- [x] Create src/sections/index.js
-- [x] Create src/hooks/index.js
-- [x] Create src/utils/index.js
+1. ~~✅ PLAN APPROVED by user~~
 
-## Phase 3: Critical Bug Fixes & Import Updates
-- [x] Fix HeroSection.jsx (add navItems import, normalize imports)
-- [x] Fix CtaSection.jsx (French eyebrow, normalize imports)
-- [x] Update all remaining sections/components to new imports
-- [x] Update Footer.jsx to use navItems
-- [x] Update ContactSection.jsx to use Button component
+2. Update `src/data/landing.js` with exact task texts (stats, services, steps, plans, projects desc, ADD `landingTestimonials` array for 3 avis).
 
-## Phase 4: Delete & Clean
-- [x] Delete src/data/content.js
-- [x] Delete unused assets (hero.png, react.svg, vite.svg)
-- [ ] Delete vite-dev.err
-- [x] Simplify App.jsx with barrel exports
-- [x] Update TODO.md
-- [x] Standardize import grouping
+3. Update `src/data/brand.js` - change contactEmail to "hello@webengineer.com".
 
-## Phase 5: Verification
-- [x] npm run build passes
-- [x] npm run lint passes
+4. Tweak `src/sections/landing/Hero.jsx` - ADD badge "🚀 Création...", update title/desc to exact.
+
+5. Create NEW `src/sections/landing/Avis.jsx` - Testimonials section with loop over landingTestimonials.
+
+6. Refactor `src/sections/landing/Portfolio.jsx` - ADD description, REMOVE aside testimonial (moved to Avis).
+
+7. Update `src/sections/landing/FinalCta.jsx` - Exact title/desc/buttons.
+
+8. Update `src/sections/landing/LandingFooter.jsx` - Exact desc, contact (email, Instagram @webengineer), ©2026.
+
+9. Update `src/sections/PremiumLanding.jsx` - ADD import/render Avis.jsx between Portfolio and FinalCta.
+
+10. Test: `npm run dev`, check all sections, responsive, no errors.
+
+11. ~~✅ attempt_completion~~
+
+2. ✅ Update `src/data/landing.js` with exact task texts (stats, services, steps, plans, projects desc, ADD `landingTestimonials` array for 3 avis). (Used temp file for complex multi-edits)
+
+3. ✅ Update `src/data/brand.js` - change contactEmail to "hello@webengineer.com".
+
+4. ✅ Create NEW `src/sections/landing/Avis.jsx` - Testimonials section with loop over landingTestimonials.
+
+6. ✅ Refactor `Portfolio.jsx` - ADD description, REMOVE aside testimonial (moved to Avis).
+
+7. ✅ Update `src/sections/landing/FinalCta.jsx` - Exact title/desc/buttons.
+
+8. ✅ Update `src/sections/landing/LandingFooter.jsx` - Exact desc, contact (email, Instagram @webengineer), ©2026.
+
+**Progress: Ready for step 9**
+

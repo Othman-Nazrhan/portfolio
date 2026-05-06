@@ -99,13 +99,13 @@ export const landingProjects = [
 
 export const landingTestimonials = [
   {
-    text: "Très professionnel et rapide. Mon site est moderne et performant.",
+    text: "“Très professionnel et rapide. Mon site est moderne et performant.”",
   },
   {
-    text: "Excellent travail, communication parfaite et résultat au-delà de mes attentes.",
+    text: "“Excellent travail, communication parfaite et résultat au-delà de mes attentes.”",
   },
   {
-    text: "Design premium, responsive et très fluide sur mobile.",
+    text: "“Design premium, responsive et très fluide sur mobile.”",
   },
 ];
 

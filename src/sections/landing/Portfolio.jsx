@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { Icon } from "../../components";
-import { landingProjects } from "../../data";
+import { landingProjects } from "../../data/landing.js";
 import LandingSection from "./LandingSection.jsx";
 
 export default function Portfolio({ motionConfig }) {
   return (
     <LandingSection id="portfolio" eyebrow="R\u00e9alisations" title="Des exemples pensés pour inspirer confiance">
-      <div className="mt-7 grid gap-5 lg:grid-cols-[repeat(3,minmax(0,1fr))_0.92fr]">
+      <p className="mt-10 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+        Découvrez une sélection de projets modernes réalisés pour différents types d’activités.
+      </p>
+      <div className="mt-12 grid gap-5 lg:grid-cols-3">
         {landingProjects.map((project) => (
           <motion.article
             key={project.title}
@@ -26,21 +29,6 @@ export default function Portfolio({ motionConfig }) {
             </div>
           </motion.article>
         ))}
-        <motion.aside
-          whileHover={motionConfig.hoverLift}
-          className="rounded-xl border border-white/12 bg-white/[0.045] p-7 shadow-[0_22px_70px_rgba(0,0,0,0.26)]"
-        >
-          <h3 className="text-lg font-black text-white">Ils m'ont fait confiance</h3>
-          <p className="mt-5 text-sm leading-7 text-slate-300">
-            "Le rendu est moderne, clair et beaucoup plus professionnel. Mes clients comprennent mieux mon offre et me contactent plus facilement."
-          </p>
-          <div className="mt-6 flex gap-1 text-yellow-400">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <Icon key={index} name="star" className="h-5 w-5 fill-current" />
-            ))}
-          </div>
-          <p className="mt-6 text-sm font-bold text-white">- Client satisfait</p>
-        </motion.aside>
       </div>
     </LandingSection>
   );

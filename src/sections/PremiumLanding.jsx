@@ -1,4 +1,4 @@
-import { FinalCta, Hero, LandingFooter, Portfolio, Pricing, Process, ProjectDialog, Services } from "./landing";
+import { Avis, FinalCta, Hero, LandingFooter, Portfolio, Pricing, Process, ProjectDialog, Services } from "./landing";
 
 export default function PremiumLanding({ motionConfig }) {
   return (
@@ -8,9 +8,11 @@ export default function PremiumLanding({ motionConfig }) {
       <Process motionConfig={motionConfig} />
       <Pricing motionConfig={motionConfig} />
       <Portfolio motionConfig={motionConfig} />
+      <Avis motionConfig={motionConfig} />
       <FinalCta />
       <LandingFooter />
       <ProjectDialog />
     </div>
   );
 }
+

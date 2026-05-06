@@ -20,22 +20,21 @@ export default function Hero({ motionConfig }) {
             transition={motionConfig.transition}
             className="inline-flex items-center rounded-lg border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-blue-100 shadow-[0_0_28px_rgba(0,102,255,0.22)]"
           >
-            Sites web premium pour ind&eacute;pendants et entreprises
+            🚀 Création de sites web modernes & performants
           </motion.p>
           <motion.h1
             variants={fadeUp}
             transition={motionConfig.transition}
             className="mt-6 text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Un site web qui <span className="text-blue-500">attire, rassure</span> et convertit vos clients.
+            Un site web qui attire, engage et convertit vos clients.
           </motion.h1>
           <motion.p
             variants={fadeUp}
             transition={motionConfig.transition}
             className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg"
           >
-            Je con&ccedil;ois des sites modernes, rapides et faciles &agrave; utiliser pour renforcer votre image, expliquer votre offre
-            et transformer vos visiteurs en vrais contacts.
+            Je crée des sites web modernes, rapides et optimisés pour aider votre activité à gagner en visibilité, inspirer confiance et transformer vos visiteurs en clients.
           </motion.p>
           <motion.div variants={fadeUp} transition={motionConfig.transition} className="mt-8 flex flex-col gap-3 sm:flex-row">
             <PrimaryButton href="#contact">D&eacute;marrer mon projet</PrimaryButton>

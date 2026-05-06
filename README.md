@@ -71,9 +71,11 @@ public/
 
 - Nom de marque et email: `src/data/brand.js`
 - Navigation: `src/data/navigation.js`
-- Services, tarifs, projets, FAQ et textes de page: `src/data/sections.js`
+- Contenus de la landing (hero, services, process, offres, projets, avis, CTA badges): `src/data/landing.js`
+- Contenus additionnels du portfolio (catalogue projets, services/sections marketing, etc.): `src/data/sections.js`
 - Images de projets: `public/project-images/`
 - Metadonnees SEO globales: `index.html`
+
 
 Apres une modification de contenu ou d'interface, lancer:
 
