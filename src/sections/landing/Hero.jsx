@@ -20,25 +20,26 @@ export default function Hero({ motionConfig }) {
             transition={motionConfig.transition}
             className="inline-flex items-center rounded-lg border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-blue-100 shadow-[0_0_28px_rgba(0,102,255,0.22)]"
           >
-            🚀 Création de sites web modernes & performants
+            Création de sites web pour indépendants et petites entreprises
           </motion.p>
           <motion.h1
             variants={fadeUp}
             transition={motionConfig.transition}
             className="mt-6 text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Un site web qui attire, engage et convertit vos clients.
+            Un site clair, rapide et crédible pour transformer vos visiteurs en clients.
           </motion.h1>
           <motion.p
             variants={fadeUp}
             transition={motionConfig.transition}
             className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg"
           >
-            Je crée des sites web modernes, rapides et optimisés pour aider votre activité à gagner en visibilité, inspirer confiance et transformer vos visiteurs en clients.
+            Je conçois des sites vitrines, WordPress et interfaces web avec une priorité simple : expliquer votre offre,
+            rassurer vos visiteurs et leur donner envie de vous contacter.
           </motion.p>
           <motion.div variants={fadeUp} transition={motionConfig.transition} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <PrimaryButton href="#contact">D&eacute;marrer mon projet</PrimaryButton>
-            <SecondaryButton href="#portfolio">Voir mes r&eacute;alisations</SecondaryButton>
+            <PrimaryButton href="#contact">Démarrer mon projet</PrimaryButton>
+            <SecondaryButton href="#portfolio">Voir mes réalisations</SecondaryButton>
           </motion.div>
           <HeroStats motionConfig={motionConfig} />
         </motion.div>
@@ -84,7 +85,7 @@ function HeroImage({ motionConfig }) {
       <div className="relative overflow-hidden rounded-[1.35rem] border border-blue-300/20 bg-[#07101f] p-2 shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
         <img
           src="/hero-image.png"
-          alt="Aper\u00e7u de cr\u00e9ation web Web Engineer"
+          alt="Aperçu de création web Web Engineer"
           className="aspect-[16/10] w-full rounded-[1rem] object-cover object-center"
         />
         <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-gradient-to-tr from-[#020813]/25 via-transparent to-blue-500/10" />

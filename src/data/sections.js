@@ -132,7 +132,7 @@ export const projectCatalog = [
     result: "+62% reservations",
     budget: "A partir de 450 EUR",
     timeline: "2 a 3 semaines",
-    status: "Exemple service",
+    status: "Projet réalisé",
     brand: {
       name: "Maison Verde",
       initials: "MV",
@@ -141,14 +141,15 @@ export const projectCatalog = [
       assets: ["Logo", "Palette", "Maquette PSD"],
     },
     description:
-      "Exemple de site vitrine pour un restaurant: ambiance, menu, horaires, galerie photo, carte Google Maps et bouton de reservation visible.",
-    image: "/project-images/creation-site-web-restaurant.png",
+      "Site vitrine réalisé pour présenter l'ambiance, le menu, les horaires, la galerie photo, la carte Google Maps et un bouton de réservation visible.",
+    image: "/project-images/site-web-restaurant-main.png",
     gallery: [
-      "/project-images/creation-site-web-restaurant.png",
-      "/project-images/creation-site-web-restaurant-menu.png",
-      "/project-images/creation-site-web-restaurant-responsive.png",
+      "/project-images/site-web-restaurant-main.png",
+      "/project-images/site-web-restaurant-menu.png",
+      "/project-images/site-web-restaurant-gallery.png",
     ],
     imageAlt: "Restaurant chaleureux avec tables preparees pour illustrer un site vitrine",
+    imageFit: "contain",
     imagePosition: "center",
     challenge: "Donner envie de venir sur place et rendre la reservation simple depuis mobile.",
     solution: "Page d'accueil immersive, menu clair, photos du lieu, avis clients, carte et CTA de reservation.",
@@ -163,7 +164,7 @@ export const projectCatalog = [
     result: "2.4x plus rapide",
     budget: "Sur devis",
     timeline: "4 a 8 semaines",
-    status: "Exemple service",
+    status: "Projet réalisé",
     brand: {
       name: "Nova Habitat",
       initials: "NH",
@@ -172,7 +173,7 @@ export const projectCatalog = [
       assets: ["Logo", "Dashboard", "Maquette PSD"],
     },
     description:
-      "Exemple d'application web pour une agence immobiliere: biens, demandes clients, visites, statuts et suivi commercial dans un seul espace.",
+      "Application web réalisée pour centraliser les biens, les demandes clients, les visites, les statuts et le suivi commercial dans un seul espace.",
     image: "/project-images/application-web-immobilier.png",
     gallery: [
       "/project-images/application-web-immobilier.png",
@@ -194,7 +195,7 @@ export const projectCatalog = [
     result: "-31% friction",
     budget: "Sur devis",
     timeline: "2 a 5 semaines",
-    status: "Exemple service",
+    status: "Projet réalisé",
     brand: {
       name: "Luna Studio",
       initials: "LS",
@@ -203,7 +204,7 @@ export const projectCatalog = [
       assets: ["Logo", "App mobile", "Maquette PSD"],
     },
     description:
-      "Exemple d'interface mobile pour un salon de beaute: choix du service, disponibilites, reservation et rappel de rendez-vous.",
+      "Interface mobile réalisée pour simplifier le choix du service, les disponibilités, la réservation et le rappel de rendez-vous.",
     image: "/project-images/mobile-salon-beaute.png",
     gallery: [
       "/project-images/mobile-salon-beaute.png",
@@ -225,7 +226,7 @@ export const projectCatalog = [
     result: "Administration simple",
     budget: "Sur devis",
     timeline: "1 a 4 semaines",
-    status: "Exemple service",
+    status: "Projet réalisé",
     brand: {
       name: "Cafe Nori",
       initials: "CN",
@@ -234,7 +235,7 @@ export const projectCatalog = [
       assets: ["Logo", "WordPress", "Maquette PSD"],
     },
     description:
-      "Exemple de site WordPress pour un cafe shop: menu, photos, horaires, adresse, evenements et contenus modifiables par le gerant.",
+      "Site WordPress réalisé pour présenter le menu, les photos, les horaires, l'adresse, les événements et les contenus modifiables par le gérant.",
     image: "/project-images/wordpress-cafe-shop.png",
     gallery: [
       "/project-images/wordpress-cafe-shop.png",
@@ -256,7 +257,7 @@ export const projectCatalog = [
     result: "Site plus stable",
     budget: "Forfait mensuel",
     timeline: "Continu",
-    status: "Exemple service",
+    status: "Projet réalisé",
     brand: {
       name: "Urban Cart",
       initials: "UC",
@@ -265,7 +266,7 @@ export const projectCatalog = [
       assets: ["Logo", "Audit", "Maquette PSD"],
     },
     description:
-      "Exemple de maintenance pour une boutique en ligne: mises a jour, corrections, sauvegardes, vitesse et verification du parcours d'achat.",
+      "Maintenance réalisée pour stabiliser une boutique en ligne : mises à jour, corrections, sauvegardes, vitesse et vérification du parcours d'achat.",
     image: "https://images.pexels.com/photos/4968386/pexels-photo-4968386.jpeg?auto=compress&cs=tinysrgb&w=1600",
     gallery: [
       "https://images.pexels.com/photos/4968386/pexels-photo-4968386.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -287,7 +288,7 @@ export const projectCatalog = [
     result: "Image plus premium",
     budget: "A partir de 300 EUR",
     timeline: "1 a 3 semaines",
-    status: "Exemple service",
+    status: "Projet réalisé",
     brand: {
       name: "Clinique Nova",
       initials: "CN",
@@ -296,7 +297,7 @@ export const projectCatalog = [
       assets: ["Logo", "Refonte", "Maquette PSD"],
     },
     description:
-      "Exemple de refonte pour un cabinet dentaire: design plus rassurant, prestations claires, prise de rendez-vous et informations pratiques.",
+      "Refonte réalisée pour un cabinet dentaire : design plus rassurant, prestations claires, prise de rendez-vous et informations pratiques.",
     image: "/project-images/refonte-cabinet-dentaire.png",
     gallery: [
       "/project-images/refonte-cabinet-dentaire.png",
@@ -319,9 +320,10 @@ export const featuredProjects = [
     type: "Creation site web",
     result: "+62% reservations",
     description:
-      "Exemple de site vitrine pour un restaurant: ambiance, menu, horaires, galerie photo, carte Google Maps et bouton de reservation visible.",
-    image: "/project-images/creation-site-web-restaurant.png",
+      "Site vitrine réalisé pour présenter l'ambiance, le menu, les horaires, la galerie photo, la carte Google Maps et un bouton de réservation visible.",
+    image: "/project-images/site-web-restaurant-main.png",
     imageAlt: "Restaurant chaleureux avec tables preparees pour illustrer un site vitrine",
+    imageFit: "contain",
     imagePosition: "center",
   },
   {
@@ -329,7 +331,7 @@ export const featuredProjects = [
     type: "Application web",
     result: "2.4x plus rapide",
     description:
-      "Exemple d'application web pour une agence immobiliere: biens, demandes clients, visites, statuts et suivi commercial dans un seul espace.",
+      "Application web réalisée pour centraliser les biens, les demandes clients, les visites, les statuts et le suivi commercial dans un seul espace.",
     image: "/project-images/application-web-immobilier.png",
     imageAlt: "Maison moderne representant une application web pour agence immobiliere",
     imagePosition: "center",
@@ -339,7 +341,7 @@ export const featuredProjects = [
     type: "Interface app mobile",
     result: "-31% friction",
     description:
-      "Exemple d'interface mobile pour un salon de beaute: choix du service, disponibilites, reservation et rappel de rendez-vous.",
+      "Interface mobile réalisée pour simplifier le choix du service, les disponibilités, la réservation et le rappel de rendez-vous.",
     image: "/project-images/mobile-salon-beaute.png",
     imageAlt: "Salon de beaute moderne pour illustrer une application mobile de reservation",
     imagePosition: "center",

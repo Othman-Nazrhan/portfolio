@@ -4,7 +4,7 @@ import buildMailto from "../../utils/buildMailto";
 
 const projectTypes = ["Site vitrine", "Landing page", "Site WordPress", "Refonte", "Maintenance", "Autre"];
 const budgets = ["100 - 300 EUR", "300 - 600 EUR", "600 - 1000 EUR", "1000 EUR et plus"];
-const timelines = ["Urgent", "1 a 2 semaines", "Ce mois-ci", "Je compare les options"];
+const timelines = ["Urgent", "1 à 2 semaines", "Ce mois-ci", "Je compare les options"];
 
 export function ProjectDialogButton({ children = "Discutons de votre projet", className = "" }) {
   return (
@@ -68,7 +68,8 @@ export default function ProjectDialog() {
             <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">Brief rapide</p>
             <h2 className="mt-3 text-2xl font-black tracking-tight text-white">Parlez-moi de votre projet</h2>
             <p className="mt-3 text-sm leading-7 text-slate-400">
-              Répondez à quelques questions. Votre messagerie s'ouvrira ensuite avec un message déjà préparé.
+              Répondez à quelques questions. Votre messagerie s'ouvrira ensuite avec un message préparé pour gagner du
+              temps et démarrer sur de bonnes bases.
             </p>
           </div>
           <button
@@ -128,7 +129,7 @@ export default function ProjectDialog() {
               name="message"
               required
               rows="5"
-              placeholder="Ex: présenter mes services, recevoir plus de demandes, refaire un site ancien..."
+              placeholder="Ex : présenter mes services, recevoir plus de demandes, refaire un site ancien, vendre une offre précise..."
               className={`${inputClass} resize-none leading-7`}
             />
           </Field>
@@ -145,7 +146,7 @@ export default function ProjectDialog() {
               type="submit"
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 text-sm font-black text-white shadow-[0_14px_46px_rgba(0,102,255,0.32)] transition hover:bg-blue-500"
             >
-              Envoyer ma demande
+              Préparer ma demande
               <Icon name="arrow" className="h-4 w-4" />
             </button>
           </div>

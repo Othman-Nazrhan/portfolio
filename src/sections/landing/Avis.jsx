@@ -5,7 +5,7 @@ import { fadeUp, stagger } from "./motion.js";
 
 export default function Avis({ motionConfig }) {
   return (
-    <LandingSection id="avis" title="Ils me font confiance">
+    <LandingSection id="avis" title="Des clients accompagnés avec clarté">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -20,11 +20,10 @@ export default function Avis({ motionConfig }) {
             transition={{ ...motionConfig.transition, delay: motionConfig.reduceMotion ? 0 : index * 0.1 }}
             className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 shadow-2xl"
           >
-            <p className="text-lg leading-relaxed text-slate-200 italic">“{testimonial.text}”</p>
+            <p className="text-lg italic leading-relaxed text-slate-200">“{testimonial.text}”</p>
           </motion.article>
         ))}
       </motion.div>
     </LandingSection>
   );
 }
-

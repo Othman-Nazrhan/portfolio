@@ -17,13 +17,13 @@ export default function CtaSection({ motionConfig }) {
           <motion.div variants={fadeUp} transition={motionConfig.transition}>
             <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Lancer votre projet</p>
             <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">
-              Pret a transformer votre idee en site clair et credible?
+              Prêt à transformer votre idée en site clair et crédible ?
             </h2>
           </motion.div>
           <motion.div variants={fadeUp} transition={motionConfig.transition}>
             <p className="text-sm leading-7 text-slate-300 sm:text-base">
-              On part de votre objectif, de votre metier et de vos contenus, puis on construit une experience web
-              propre: site vitrine, WordPress, dashboard, mobile ou maintenance.
+              On part de votre objectif, de votre métier et de vos contenus, puis on construit une expérience web
+              propre : site vitrine, WordPress, dashboard, mobile ou maintenance.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button>Demander un devis</Button>

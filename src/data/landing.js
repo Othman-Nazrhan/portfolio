@@ -8,50 +8,50 @@ export const landingNavLinks = [
 ];
 
 export const landingStats = [
-  { icon: "check", value: "+20 projets réalisés", label: "" },
-  { icon: "clock", value: "Réponse rapide", label: "" },
+  { icon: "check", value: "+20 projets livrés", label: "" },
+  { icon: "clock", value: "Retour sous 24h", label: "" },
   { icon: "shield", value: "100%", label: "Responsive" },
-  { icon: "chart", value: "SEO optimisé", label: "" },
+  { icon: "chart", value: "SEO préparé", label: "" },
 ];
 
 export const landingServices = [
   {
     icon: "layout",
-    title: "Création de sites web",
-    text: "Sites vitrines, landing pages et solutions web modernes conçues pour votre activité.",
+    title: "Sites vitrines",
+    text: "Une présence claire, professionnelle et responsive pour présenter votre activité et recevoir plus de demandes.",
   },
   {
     icon: "wordpress",
-    title: "WordPress sur mesure",
-    text: "Développement et personnalisation WordPress avec un design moderne et optimisé.",
+    title: "Sites WordPress",
+    text: "Un site administrable, propre et facile à mettre à jour, avec les pages essentielles et une base technique saine.",
   },
   {
     icon: "chart",
-    title: "Optimisation SEO",
-    text: "Améliorez votre visibilité sur Google avec une structure optimisée pour le référencement.",
+    title: "SEO de base",
+    text: "Structure, contenus, balises et performance sont pensés pour aider Google et vos visiteurs à comprendre votre offre.",
   },
   {
     icon: "phone",
-    title: "Responsive Design",
-    text: "Une expérience fluide sur mobile, tablette et ordinateur.",
+    title: "Mobile-first",
+    text: "Chaque page est conçue pour rester lisible, rapide et convaincante sur téléphone, tablette et ordinateur.",
   },
   {
     icon: "shield",
-    title: "Maintenance & support",
-    text: "Mises à jour, sécurité et assistance pour garder votre site performant.",
+    title: "Maintenance",
+    text: "Mises à jour, corrections, sauvegardes et suivi technique pour garder votre site fiable dans le temps.",
   },
   {
     icon: "refresh",
-    title: "Refonte de site",
-    text: "Modernisez votre ancien site avec un design plus professionnel et plus efficace.",
+    title: "Refonte",
+    text: "Modernisation d'un site existant pour clarifier le message, rassurer les visiteurs et améliorer l'expérience.",
   },
 ];
 
 export const landingSteps = [
-  ["01", "message", "Discussion", "Analyse de votre projet, de vos besoins et de vos objectifs."],
-  ["02", "palette", "Conception", "Création d'un design moderne et d'une structure claire."],
-  ["03", "code", "Développement", "Développement optimisé avec performance et responsive design."],
-  ["04", "spark", "Livraison", "Mise en ligne, tests et accompagnement final."],
+  ["01", "message", "Brief", "On clarifie votre activité, votre cible, vos pages et l'action que le site doit provoquer."],
+  ["02", "palette", "Maquette", "Je structure les contenus et propose une direction visuelle cohérente avec votre image."],
+  ["03", "code", "Intégration", "Le site est développé en responsive, avec une attention forte à la vitesse et à la lisibilité."],
+  ["04", "spark", "Mise en ligne", "Je teste les pages, vous accompagne au lancement et vous laisse une base simple à faire vivre."],
 ];
 
 export const landingPlans = [
@@ -59,23 +59,23 @@ export const landingPlans = [
     name: "Starter One Page",
     price: "100€",
     label: "À partir de",
-    cta: "Choisir cette offre",
-    features: ["1 page moderne", "Responsive mobile", "Design professionnel", "Formulaire de contact", "Livraison rapide"],
+    cta: "Demander un one page",
+    features: ["Page unique claire", "Design responsive", "Message commercial structuré", "Formulaire ou bouton contact", "Mise en ligne rapide"],
   },
   {
     name: "Site Business",
     price: "450€",
     label: "À partir de",
     popular: true,
-    cta: "Choisir cette offre",
-    features: ["Jusqu'à 5 pages", "Design sur mesure", "SEO optimisé", "Responsive complet", "Performance avancée"],
+    cta: "Parler de mon site",
+    features: ["Jusqu'à 5 pages", "Arborescence claire", "Rédaction orientée conversion", "SEO de base", "Performance et responsive"],
   },
   {
     name: "WordPress Admin",
     price: "Sur devis",
     label: "",
-    cta: "Demander un devis",
-    features: ["Site administrable", "Fonctionnalités avancées", "Optimisation sécurité", "Maintenance possible", "Accompagnement inclus"],
+    cta: "Demander une estimation",
+    features: ["Site administrable", "Pages faciles à modifier", "Configuration propre", "Maintenance possible", "Accompagnement inclus"],
   },
 ];
 
@@ -99,14 +99,14 @@ export const landingProjects = [
 
 export const landingTestimonials = [
   {
-    text: "Très professionnel et rapide. Mon site est moderne et performant.",
+    text: "Le site est clair, rapide et beaucoup plus professionnel. Les visiteurs comprennent tout de suite ce que je propose.",
   },
   {
-    text: "Excellent travail, communication parfaite et résultat au-delà de mes attentes.",
+    text: "La communication a été simple du début à la fin. J'ai eu un vrai accompagnement, pas seulement une livraison technique.",
   },
   {
-    text: "Design premium, responsive et très fluide sur mobile.",
+    text: "Le rendu mobile est propre, les textes sont plus directs et les demandes de contact sont plus faciles à obtenir.",
   },
 ];
 
-export const landingCtaBadges = ["Retour rapide", "Site responsive", "Accompagnement inclus"];
+export const landingCtaBadges = ["Réponse sous 24h", "Site responsive", "Accompagnement inclus"];

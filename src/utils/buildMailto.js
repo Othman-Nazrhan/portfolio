@@ -7,7 +7,7 @@ export default function buildMailto(formElement) {
     `Email: ${form.get("email") || ""}`,
     `Type de projet: ${form.get("projectType") || ""}`,
     `Budget estime: ${form.get("budget") || ""}`,
-    `Delai souhaite: ${form.get("timeline") || ""}`,
+    `Délai souhaité: ${form.get("timeline") || ""}`,
     "",
     "Brief:",
     form.get("message") || "",

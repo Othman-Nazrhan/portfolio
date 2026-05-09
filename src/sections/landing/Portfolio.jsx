@@ -5,9 +5,10 @@ import LandingSection from "./LandingSection.jsx";
 
 export default function Portfolio({ motionConfig }) {
   return (
-    <LandingSection id="portfolio" eyebrow="R\u00e9alisations" title="Des exemples pensés pour inspirer confiance">
+    <LandingSection id="portfolio" eyebrow="Réalisations" title="Des projets concrets, conçus pour des besoins réels">
       <p className="mt-10 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-        Découvrez une sélection de projets modernes réalisés pour différents types d’activités.
+        Découvrez une sélection de réalisations web : sites vitrines, interfaces, refontes et supports techniques pensés
+        pour des activités locales et professionnelles.
       </p>
       <div className="mt-12 grid gap-5 lg:grid-cols-3">
         {landingProjects.map((project) => (

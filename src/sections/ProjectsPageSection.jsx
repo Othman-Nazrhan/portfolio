@@ -68,7 +68,7 @@ export default function ProjectsPageSection({ motionConfig }) {
 
 function ProjectPageHeader() {
   const stats = [
-    { value: projectCatalog.length, label: "projets types" },
+    { value: projectCatalog.length, label: "réalisations" },
     { value: "6", label: "services couverts" },
     { value: "100 EUR", label: "prix de depart" },
   ];
@@ -78,11 +78,11 @@ function ProjectPageHeader() {
       <div>
         <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Portfolio</p>
         <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-          Des exemples de realisations que vos clients peuvent demander.
+          Des réalisations concrètes pour montrer ce que votre futur site peut accomplir.
         </h2>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-          Restaurant, cafe shop, agence, boutique ou cabinet: chaque fiche montre une realisation concrete pour aider
-          le visiteur a se projeter et demander un projet similaire.
+          Restaurant, café, agence, boutique ou cabinet : chaque fiche présente un besoin réel, une solution claire et
+          un résultat attendu pour aider le visiteur à se projeter.
         </p>
       </div>
 
@@ -140,7 +140,7 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
             sizes="(min-width: 1024px) 58vw, 100vw"
             alt={project.imageAlt}
             className="motion-media h-full min-h-80 w-full object-cover saturate-110"
-            style={{ objectPosition: project.imagePosition }}
+            style={{ objectFit: project.imageFit ?? "cover", objectPosition: project.imagePosition }}
             loading="eager"
             fetchPriority="high"
             decoding="async"
@@ -156,14 +156,14 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
 
         <div className="p-6 sm:p-8">
           <ProjectBrand project={project} />
-          <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-sky-200">Projet selectionne</p>
+          <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-sky-200">Projet sélectionné</p>
           <h3 className="mt-4 text-2xl font-black tracking-tight text-white">{project.title}</h3>
           <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{project.description}</p>
           <ProjectThumbStrip project={project} />
 
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
             <ProjectMeta label="Budget" value={project.budget} />
-            <ProjectMeta label="Delai" value={project.timeline} />
+            <ProjectMeta label="Délai" value={project.timeline} />
             <ProjectMeta label="Resultat" value={project.result} />
           </div>
 
@@ -172,7 +172,7 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
             onClick={onOpen}
             className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
-            Ouvrir la fiche complete
+            Ouvrir la fiche complète
             <Icon name="arrow" className="h-4 w-4" />
           </button>
         </div>
@@ -197,7 +197,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
           sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 100vw"
           alt={project.imageAlt}
           className="motion-media aspect-[16/10] w-full object-cover saturate-110"
-          style={{ objectPosition: project.imagePosition }}
+          style={{ objectFit: project.imageFit ?? "cover", objectPosition: project.imagePosition }}
           loading="lazy"
           decoding="async"
         />
@@ -227,7 +227,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             <ProjectMeta label="Budget" value={project.budget} />
-            <ProjectMeta label="Delai" value={project.timeline} />
+            <ProjectMeta label="Délai" value={project.timeline} />
             <ProjectMeta label="Resultat" value={project.result} />
           </div>
 
@@ -318,6 +318,7 @@ function ProjectThumbStrip({ project, compact = false }) {
             src={setImageWidth(image, 640)}
             alt={`${project.title} - apercu ${index + 1}`}
             className={`motion-media ${compact ? "aspect-[4/3]" : "aspect-[16/10]"} w-full object-cover saturate-110`}
+            style={{ objectFit: image === project.image ? project.imageFit ?? "cover" : "cover" }}
             loading="lazy"
             decoding="async"
           />
@@ -351,6 +352,7 @@ function ProjectGallery({ project }) {
         src={setImageWidth(activeImage, 1280)}
         alt={`${project.title} - visuel actif`}
         className="motion-media aspect-[16/10] w-full rounded-xl border border-white/10 object-cover saturate-110"
+        style={{ objectFit: activeImage === project.image ? project.imageFit ?? "cover" : "cover" }}
         decoding="async"
       />
       <div className="mt-3 grid grid-cols-3 gap-3">
@@ -369,7 +371,8 @@ function ProjectGallery({ project }) {
               <img
                 src={setImageWidth(image, 640)}
                 alt={`${project.title} - miniature ${index + 1}`}
-                className="motion-media aspect-[4/3] w-full object-cover saturate-110"
+              className="motion-media aspect-[4/3] w-full object-cover saturate-110"
+              style={{ objectFit: image === project.image ? project.imageFit ?? "cover" : "cover" }}
                 loading="lazy"
                 decoding="async"
               />
@@ -431,13 +434,13 @@ function ProjectDialog({ project, onClose }) {
               sizes="(min-width: 1024px) 45vw, 100vw"
               alt={project.imageAlt}
               className="motion-media aspect-[16/11] w-full rounded-2xl object-cover saturate-110"
-              style={{ objectPosition: project.imagePosition }}
+              style={{ objectFit: project.imageFit ?? "cover", objectPosition: project.imagePosition }}
               decoding="async"
             />
             <ProjectGallery key={project.title} project={project} />
             <div className="mt-5 grid gap-3 sm:grid-cols-3">
               <ProjectMeta label="Budget" value={project.budget} />
-              <ProjectMeta label="Delai" value={project.timeline} />
+              <ProjectMeta label="Délai" value={project.timeline} />
               <ProjectMeta label="Resultat" value={project.result} />
             </div>
           </div>
@@ -465,12 +468,12 @@ function ProjectDialog({ project, onClose }) {
             <BrandAssetBadges assets={project.brand?.assets} />
 
             <div className="mt-7 grid gap-5 md:grid-cols-2">
-              <ProjectTextBlock title="Probleme" text={project.challenge} />
+              <ProjectTextBlock title="Problème" text={project.challenge} />
               <ProjectTextBlock title="Solution" text={project.solution} />
             </div>
 
             <TagGroup title="Stack" items={project.stack} />
-            <TagGroup title="Fonctionnalites" items={project.features} />
+            <TagGroup title="Fonctionnalités" items={project.features} />
             <TagGroup title="Livrables" items={project.deliverables} />
 
             <a

@@ -5,7 +5,7 @@ import LandingSection from "./LandingSection.jsx";
 
 export default function Pricing({ motionConfig }) {
   return (
-    <LandingSection id="pricing" eyebrow="Nos offres" title="Choisissez la formule adaptée à votre objectif">
+    <LandingSection id="pricing" eyebrow="Offres" title="Des formats clairs pour avancer sans perdre de temps">
       <div className="mx-auto mt-7 grid max-w-5xl gap-5 lg:grid-cols-3">
         {landingPlans.map((plan) => (
           <motion.article
@@ -19,7 +19,7 @@ export default function Pricing({ motionConfig }) {
           >
             {plan.popular && (
               <span className="absolute right-0 top-0 rounded-bl-lg rounded-tr-xl bg-blue-600 px-4 py-2 text-xs font-black text-white">
-                Le plus populaire
+                Le plus demandé
               </span>
             )}
             <h3 className="text-lg font-black text-white">{plan.name}</h3>

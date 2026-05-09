@@ -11,15 +11,16 @@ export default function FinalCta() {
         </div>
         <div>
           <h2 className="max-w-xl text-2xl font-black leading-tight text-white sm:text-3xl">
-            Prêt à transformer votre idée en un site web performant ?
+            Vous avez un projet web à lancer ou un site à améliorer ?
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-7 text-slate-400">
-            Discutons ensemble de votre projet et créons une présence en ligne moderne et efficace.
+            Envoyez-moi les grandes lignes. Je vous réponds avec une première lecture claire, des pistes concrètes et
+            la meilleure façon d'avancer.
           </p>
         </div>
         <div className="flex flex-col gap-3">
           <PrimaryButton href="#contact">Discutons de votre projet</PrimaryButton>
-          <SecondaryButton href="#services">En savoir plus</SecondaryButton>
+          <SecondaryButton href="#services">Voir les services</SecondaryButton>
         </div>
         <div className="grid gap-3 text-xs text-slate-400 sm:grid-cols-3 md:grid-cols-1">
           {landingCtaBadges.map((item) => (

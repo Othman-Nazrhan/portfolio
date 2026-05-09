@@ -6,13 +6,13 @@ import { fadeUp, stagger } from "./motion.js";
 
 export default function Services({ motionConfig }) {
   return (
-    <LandingSection id="services" eyebrow="Mes services" title="Tout ce qu'il faut pour un site clair, rapide et rentable">
+    <LandingSection id="services" eyebrow="Mes services" title="Des services pensés pour rendre votre présence en ligne plus sérieuse">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         variants={stagger}
-        className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6"
+        className="mt-5 grid gap-3 md:grid-cols-3"
       >
         {landingServices.map((service) => (
           <motion.article

@@ -31,10 +31,10 @@ function ContactCopy({ motionConfig }) {
     <motion.div variants={fadeUp} transition={motionConfig.transition}>
       <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Contact</p>
       <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl">
-        Dites-moi ce que vous voulez creer, corriger ou ameliorer.
+        Dites-moi ce que vous voulez créer, corriger ou améliorer.
       </h2>
       <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-        Envoyez votre activite, vos objectifs, les pages ou fonctionnalites souhaitees et vos delais. Je vous reponds
+        Envoyez votre activité, vos objectifs, les pages ou fonctionnalités souhaitées et vos délais. Je vous réponds
         avec une direction claire et une estimation simple.
       </p>
       <div className="mt-8 space-y-4">
@@ -75,22 +75,22 @@ function ContactForm({ motionConfig, onSubmit }) {
 
       <div className="mt-5 grid gap-5 sm:grid-cols-3">
         <SelectField label="Type de projet" name="projectType" options={projectTypes} />
-        <SelectField label="Budget estime" name="budget" options={budgets} />
-        <SelectField label="Delai souhaite" name="timeline" options={timelines} />
+        <SelectField label="Budget estimé" name="budget" options={budgets} />
+        <SelectField label="Délai souhaité" name="timeline" options={timelines} />
       </div>
 
       <label className="mt-5 block">
         <span className="text-sm font-bold text-slate-200">Brief du projet</span>
         <textarea
           name="message"
-          placeholder="Exemple: je veux un site pour mon restaurant avec menu, galerie, horaires, reservation et une page contact."
+          placeholder="Ex : je veux un site pour mon restaurant avec menu, galerie, horaires, réservation et une page contact."
           required
           className={`${inputClass} min-h-36 resize-none`}
         />
       </label>
 
       <p className="mt-4 rounded-xl border border-blue-500/15 bg-blue-500/10 px-4 py-3 text-sm leading-6 text-blue-50">
-        Reponse claire sous 24h ouvrables avec les prochaines etapes, les points a clarifier et une estimation adaptee
+        Réponse claire sous 24h ouvrables avec les prochaines étapes, les points à clarifier et une estimation adaptée
         au projet.
       </p>
 

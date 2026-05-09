@@ -9,8 +9,8 @@ export default function ProjectsSection({ motionConfig }) {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Projets"
-          title="Des exemples de realisations faciles a imaginer."
-          description="Restaurant, cafe shop, agence immobiliere, salon de beaute ou boutique: chaque exemple aide le client a demander le meme type de projet."
+          title="Des réalisations concrètes pour montrer votre savoir-faire."
+          description="Restaurant, café, agence immobilière, salon de beauté ou boutique : chaque projet montre un besoin réel, une solution claire et un résultat lisible."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -44,7 +44,7 @@ function ProjectCard({ project, motionConfig }) {
             sizes="(min-width: 1024px) 31vw, 100vw"
             alt={project.imageAlt}
             className="motion-media aspect-[16/11] w-full object-cover saturate-110"
-            style={{ objectPosition: project.imagePosition }}
+            style={{ objectFit: project.imageFit ?? "cover", objectPosition: project.imagePosition }}
             loading="lazy"
             decoding="async"
           />
@@ -63,7 +63,7 @@ function ProjectCard({ project, motionConfig }) {
           href="/portfolio"
           className="mt-6 inline-flex items-center gap-2 text-sm font-black text-sky-200 transition hover:text-blue-100"
         >
-          Voir le detail
+          Voir le détail
           <Icon name="arrow" className="h-4 w-4" />
         </a>
       </div>
