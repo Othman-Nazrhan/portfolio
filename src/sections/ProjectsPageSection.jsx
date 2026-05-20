@@ -69,7 +69,7 @@ export default function ProjectsPageSection({ motionConfig }) {
 function ProjectPageHeader() {
   const stats = [
     { value: projectCatalog.length, label: "réalisations" },
-    { value: "6", label: "services couverts" },
+    { value: "2", label: "formats site web" },
     { value: "100 EUR", label: "prix de depart" },
   ];
 
@@ -78,11 +78,11 @@ function ProjectPageHeader() {
       <div>
         <p className="text-xs font-black uppercase tracking-[0.2em] text-sky-200">Portfolio</p>
         <h2 className="mt-3 max-w-4xl text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
-          Des réalisations concrètes pour montrer ce que votre futur site peut accomplir.
+          Des réalisations concrètes pour montrer ce que votre futur projet peut accomplir.
         </h2>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-          Restaurant, café, agence, boutique ou cabinet : chaque fiche présente un besoin réel, une solution claire et
-          un résultat attendu pour aider le visiteur à se projeter.
+          Pour les sites web, je travaille en deux formats : intégration HTML/CSS/JS pour une maquette sur mesure, ou
+          WordPress quand vous voulez modifier vos contenus facilement.
         </p>
       </div>
 
@@ -333,6 +333,7 @@ function ProjectThumbStrip({ project, compact = false }) {
 function ProjectGallery({ project }) {
   const images = project.gallery ?? [project.image];
   const [activeImage, setActiveImage] = useState(images[0]);
+  const [zoomImage, setZoomImage] = useState(null);
 
   if (images.length < 2) {
     return null;
@@ -344,17 +345,24 @@ function ProjectGallery({ project }) {
         <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-300">Galerie projet</p>
         <p className="text-xs font-bold text-slate-500">{images.length} visuels</p>
       </div>
-      <motion.img
-        key={activeImage}
-        initial={{ opacity: 0, scale: 0.985, filter: "blur(8px)" }}
-        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-        transition={{ duration: 0.28, ease: "easeOut" }}
-        src={setImageWidth(activeImage, 1280)}
-        alt={`${project.title} - visuel actif`}
-        className="motion-media aspect-[16/10] w-full rounded-xl border border-white/10 object-cover saturate-110"
-        style={{ objectFit: activeImage === project.image ? project.imageFit ?? "cover" : "cover" }}
-        decoding="async"
-      />
+      <button
+        type="button"
+        onClick={() => setZoomImage(activeImage)}
+        className="group block w-full overflow-hidden rounded-xl border border-white/10 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        aria-label="Agrandir le visuel sélectionné"
+      >
+        <motion.img
+          key={activeImage}
+          initial={{ opacity: 0, scale: 0.985, filter: "blur(8px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.28, ease: "easeOut" }}
+          src={setImageWidth(activeImage, 1280)}
+          alt={`${project.title} - visuel actif`}
+          className="motion-media aspect-[16/10] w-full cursor-zoom-in object-cover saturate-110 transition duration-500 group-hover:scale-[1.025]"
+          style={{ objectFit: activeImage === project.image ? project.imageFit ?? "cover" : "cover" }}
+          decoding="async"
+        />
+      </button>
       <div className="mt-3 grid grid-cols-3 gap-3">
         {images.map((image, index) => {
           const isActive = image === activeImage;
@@ -380,6 +388,31 @@ function ProjectGallery({ project }) {
           );
         })}
       </div>
+      {zoomImage && (
+        <div
+          className="fixed inset-0 z-[70] grid place-items-center bg-black/86 p-4 backdrop-blur-md"
+          onMouseDown={() => setZoomImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image projet agrandie"
+        >
+          <button
+            type="button"
+            onClick={() => setZoomImage(null)}
+            className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-xl border border-white/15 bg-white/10 text-xl font-black text-white transition hover:border-blue-400/50 hover:text-blue-200"
+            aria-label="Fermer le zoom"
+          >
+            x
+          </button>
+          <img
+            src={setImageWidth(zoomImage, 1600)}
+            alt={`${project.title} - zoom`}
+            className="max-h-[86vh] max-w-[94vw] rounded-2xl border border-white/10 object-contain shadow-2xl shadow-black/50"
+            onMouseDown={(event) => event.stopPropagation()}
+            decoding="async"
+          />
+        </div>
+      )}
     </div>
   );
 }

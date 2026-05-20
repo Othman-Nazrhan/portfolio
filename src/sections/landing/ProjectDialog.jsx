@@ -2,22 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Icon } from "../../components";
 import buildMailto from "../../utils/buildMailto";
 
-const projectTypes = ["Site vitrine", "Landing page", "Site WordPress", "Refonte", "Maintenance", "Autre"];
+const projectTypes = ["Site vitrine", "Landing page", "Site WordPress", "Application web", "Application mobile", "Refonte", "Maintenance", "Autre"];
 const budgets = ["100 - 300 EUR", "300 - 600 EUR", "600 - 1000 EUR", "1000 EUR et plus"];
 const timelines = ["Urgent", "1 à 2 semaines", "Ce mois-ci", "Je compare les options"];
-
-export function ProjectDialogButton({ children = "Discutons de votre projet", className = "" }) {
-  return (
-    <button
-      type="button"
-      onClick={() => window.dispatchEvent(new Event("open-project-dialog"))}
-      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 text-sm font-black text-white shadow-[0_14px_46px_rgba(0,102,255,0.32)] transition hover:-translate-y-0.5 hover:bg-blue-500 ${className}`}
-    >
-      {children}
-      <Icon name="arrow" className="h-4 w-4" />
-    </button>
-  );
-}
 
 export default function ProjectDialog() {
   const [isOpen, setIsOpen] = useState(false);

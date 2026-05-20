@@ -1,7 +1,7 @@
 export const landingNavLinks = [
   ["Accueil", "#"],
   ["Services", "#services"],
-  ["Réalisations", "#portfolio"],
+  ["Réalisations", "/portfolio"],
   ["Offres", "#pricing"],
   ["À propos", "#process"],
   ["Contact", "#contact"],
@@ -26,14 +26,14 @@ export const landingServices = [
     text: "Un site administrable, propre et facile à mettre à jour, avec les pages essentielles et une base technique saine.",
   },
   {
-    icon: "chart",
-    title: "SEO de base",
-    text: "Structure, contenus, balises et performance sont pensés pour aider Google et vos visiteurs à comprendre votre offre.",
+    icon: "dashboard",
+    title: "Applications web",
+    text: "Dashboards, espaces clients et outils internes pour organiser vos données, vos demandes et vos processus.",
   },
   {
     icon: "phone",
-    title: "Mobile-first",
-    text: "Chaque page est conçue pour rester lisible, rapide et convaincante sur téléphone, tablette et ordinateur.",
+    title: "Applications mobiles",
+    text: "Interfaces mobiles, prototypes et parcours de réservation pensés pour une utilisation fluide sur smartphone.",
   },
   {
     icon: "shield",
@@ -83,16 +83,25 @@ export const landingProjects = [
   {
     type: "Site vitrine",
     title: "Cabinet professionnel",
+    result: "Image plus premium",
+    description: "Refonte d'un site professionnel avec une présentation plus rassurante, un parcours mobile plus clair et un bouton de contact visible.",
+    tags: ["Refonte UI", "Responsive", "Contact"],
     image: "/project-images/refonte-cabinet-dentaire.png",
   },
   {
     type: "E-commerce",
     title: "Commerce en ligne",
+    result: "Site plus stable",
+    description: "Maintenance et optimisation d'une boutique pour fiabiliser le parcours d'achat, les mises à jour et les performances.",
+    tags: ["Maintenance", "Performance", "Support"],
     image: "/project-images/maintenance-boutique-en-ligne.png",
   },
   {
     type: "Landing page",
     title: "Landing de conversion",
+    result: "2.4x plus rapide",
+    description: "Interface orientée conversion avec une hiérarchie claire, des visuels utiles et des appels à l'action mieux placés.",
+    tags: ["React", "UX", "Conversion"],
     image: "/project-images/application-web-immobilier.png",
   },
 ];

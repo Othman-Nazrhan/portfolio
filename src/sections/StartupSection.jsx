@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
-import { fadeUp, freelancerHighlights, glassBase, scaleIn } from "../data";
+import { fadeUp, glassBase, scaleIn, startupHighlights } from "../data";
 import { AnimatedSection, Icon, SectionHeader } from "../components";
 
-export default function FreelancerSection({ motionConfig }) {
+export default function StartupSection({ motionConfig }) {
   return (
     <AnimatedSection
-      id="freelance"
+      id="startup"
       motionConfig={motionConfig}
       className="border-y border-white/10 bg-white/[0.025]"
       background="bg-[radial-gradient(circle_at_12%_20%,rgba(0,132,255,0.12),transparent_30%),radial-gradient(circle_at_88%_40%,rgba(0,102,255,0.12),transparent_28%)]"
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Freelance web"
-          title="Une collaboration directe, rapide et sans complication."
-          description="Vous gardez un interlocuteur unique pour clarifier le besoin, construire une interface propre et faire avancer le projet avec des retours simples."
+          eyebrow="Startup web"
+          title="Une équipe agile pour créer, lancer et améliorer votre présence digitale."
+          description="Vous gardez un cadre simple pour clarifier le besoin, construire une interface propre et faire avancer le projet avec des retours rapides."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {freelancerHighlights.map((item) => (
+          {startupHighlights.map((item) => (
             <motion.article
               key={item.title}
               variants={scaleIn}
@@ -41,8 +41,8 @@ export default function FreelancerSection({ motionConfig }) {
           transition={motionConfig.transition}
           className="mt-10 rounded-2xl border border-blue-500/15 bg-blue-500/10 p-5 text-sm font-bold leading-6 text-blue-50 sm:p-6"
         >
-          Ideal pour independants, petites entreprises, createurs de services, artisans, consultants et porteurs de
-          projet qui veulent un site clair sans process lourd.
+          Ideal pour startups, petites entreprises, createurs de services, artisans, consultants et porteurs de projet
+          qui veulent un site clair sans process lourd.
         </motion.div>
       </div>
     </AnimatedSection>

@@ -6,5 +6,5 @@ export { default as Pricing } from "./Pricing.jsx";
 export { default as Portfolio } from "./Portfolio.jsx";
 export { default as Process } from "./Process.jsx";
 export { default as ProjectDialog } from "./ProjectDialog.jsx";
+export { ProjectDialogButton } from "./ProjectDialogButton.jsx";
 export { default as Services } from "./Services.jsx";
-

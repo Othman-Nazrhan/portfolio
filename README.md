@@ -1,6 +1,6 @@
 # DevStudio Portfolio
 
-Portfolio freelance pour presenter des services de creation de sites web, WordPress, applications web, interfaces mobiles, maintenance et refonte. Le site est construit avec React, Vite, Tailwind CSS et Framer Motion.
+Site startup pour presenter des services de creation de sites web, WordPress, applications web, interfaces mobiles, maintenance et refonte. Le site est construit avec React, Vite, Tailwind CSS et Framer Motion.
 
 ## Apercu
 

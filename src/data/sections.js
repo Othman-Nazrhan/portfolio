@@ -5,22 +5,22 @@ export const metrics = [
 ];
 
 export const heroOffers = [
-  "Site vitrine qui convertit",
+  "Integration HTML/CSS/JS",
   "WordPress administrable",
   "Dashboard ou app web",
   "Maintenance mensuelle",
 ];
 
-export const freelancerHighlights = [
+export const startupHighlights = [
   {
     icon: "message",
-    title: "Un contact direct",
-    text: "Vous parlez avec la personne qui concoit, developpe et livre votre site. Les decisions avancent vite, sans aller-retour inutile.",
+    title: "Une approche startup",
+    text: "Les decisions avancent vite avec une organisation claire, des priorites simples et une equipe concentree sur la livraison.",
   },
   {
     icon: "bolt",
     title: "Execution rapide",
-    text: "Je travaille en sprint court avec des validations simples pour transformer une idee en interface claire et utilisable.",
+    text: "Le projet avance en sprint court avec des validations simples pour transformer une idee en interface claire et utilisable.",
   },
   {
     icon: "shield",
@@ -32,9 +32,9 @@ export const freelancerHighlights = [
 export const services = [
   {
     icon: "globe",
-    title: "Creation de site vitrine",
+    title: "Integration HTML/CSS/JS",
     description:
-      "Pages modernes pour restaurant, cabinet, artisan, consultant ou service local, avec une offre claire et des appels a l'action visibles.",
+      "Sites vitrines codes en HTML, CSS et JavaScript pour une page rapide, propre et parfaitement adaptee a votre maquette.",
   },
   {
     icon: "wordpress",
@@ -71,6 +71,7 @@ export const services = [
 export const expertise = [
   "React",
   "WordPress",
+  "HTML/CSS/JS",
   "TailwindCSS",
   "Framer Motion",
   "Sites vitrines",
@@ -126,8 +127,8 @@ export const pricing = [
 
 export const projectCatalog = [
   {
-    title: "Site vitrine pour restaurant",
-    type: "Creation site web",
+    title: "Integration HTML/CSS/JS pour restaurant",
+    type: "Integration HTML/CSS/JS",
     category: "Site web",
     result: "+62% reservations",
     budget: "A partir de 450 EUR",
@@ -141,7 +142,7 @@ export const projectCatalog = [
       assets: ["Logo", "Palette", "Maquette PSD"],
     },
     description:
-      "Site vitrine réalisé pour présenter l'ambiance, le menu, les horaires, la galerie photo, la carte Google Maps et un bouton de réservation visible.",
+      "Site vitrine integre en HTML, CSS et JavaScript pour presenter l'ambiance, le menu, les horaires, la galerie photo, la carte Google Maps et un bouton de reservation visible.",
     image: "/project-images/site-web-restaurant-main.png",
     gallery: [
       "/project-images/site-web-restaurant-main.png",
@@ -152,10 +153,10 @@ export const projectCatalog = [
     imageFit: "contain",
     imagePosition: "center",
     challenge: "Donner envie de venir sur place et rendre la reservation simple depuis mobile.",
-    solution: "Page d'accueil immersive, menu clair, photos du lieu, avis clients, carte et CTA de reservation.",
-    stack: ["React", "TailwindCSS", "Framer Motion"],
+    solution: "Integration responsive sur mesure, sections claires, photos du lieu, avis clients, carte et CTA de reservation.",
+    stack: ["HTML", "CSS", "JavaScript"],
     features: ["Menu en ligne", "Galerie photo", "Avis clients", "Reservation"],
-    deliverables: ["Maquette responsive", "Developpement frontend", "SEO local de base", "Mise en ligne guidee"],
+    deliverables: ["Integration responsive", "Fichiers HTML/CSS/JS", "SEO local de base", "Mise en ligne guidee"],
   },
   {
     title: "Dashboard pour agence immobiliere",
@@ -181,6 +182,7 @@ export const projectCatalog = [
       "/project-images/application-web-immobilier-visites.png",
     ],
     imageAlt: "Maison moderne representant une application web pour agence immobiliere",
+    imageFit: "contain",
     imagePosition: "center",
     challenge: "Centraliser les biens, les prospects et les rendez-vous sans multiplier les fichiers manuels.",
     solution: "Dashboard React avec fiches biens, suivi prospects, demandes entrantes et formulaires rapides.",
@@ -215,7 +217,7 @@ export const projectCatalog = [
     imagePosition: "center",
     challenge: "Permettre aux clientes de reserver vite depuis leur telephone sans appeler le salon.",
     solution: "Parcours mobile-first, choix de prestation, calendrier clair, CTA fixe et confirmation simple.",
-    stack: ["React", "Responsive UI", "Motion"],
+    stack: ["React Native", "Responsive UI", "Motion"],
     features: ["Catalogue services", "Reservation", "CTA fixe", "Rappel rendez-vous"],
     deliverables: ["Prototype responsive", "Composants UI", "Guide d'integration", "Optimisation mobile"],
   },
@@ -277,7 +279,7 @@ export const projectCatalog = [
     imagePosition: "center",
     challenge: "Eviter les bugs, les lenteurs, les plugins obsoletes et les interruptions qui coutent des ventes.",
     solution: "Mises a jour controlees, sauvegardes, corrections, optimisation responsive et support regulier.",
-    stack: ["WordPress", "React", "HTML/CSS", "Hosting"],
+    stack: ["WordPress", "HTML/CSS", "JavaScript", "Hosting"],
     features: ["Mises a jour", "Corrections panier", "Sauvegardes", "Optimisation"],
     deliverables: ["Rapport simple", "Corrections techniques", "Support", "Suivi mensuel"],
   },
@@ -308,7 +310,7 @@ export const projectCatalog = [
     imagePosition: "center",
     challenge: "Un site deja en ligne mais trop ancien, peu rassurant ou difficile a utiliser sur mobile.",
     solution: "Nouvelle hierarchie, textes plus directs, design rassurant et responsive complet.",
-    stack: ["UX", "TailwindCSS", "WordPress ou React"],
+    stack: ["UX", "HTML/CSS/JS", "WordPress"],
     features: ["Audit rapide", "Nouveau design", "RDV visible", "Performance"],
     deliverables: ["Recommandations", "Refonte UI", "Integration", "Optimisations"],
   },
@@ -316,11 +318,11 @@ export const projectCatalog = [
 
 export const featuredProjects = [
   {
-    title: "Site vitrine pour restaurant",
-    type: "Creation site web",
+    title: "Integration HTML/CSS/JS pour restaurant",
+    type: "Integration HTML/CSS/JS",
     result: "+62% reservations",
     description:
-      "Site vitrine réalisé pour présenter l'ambiance, le menu, les horaires, la galerie photo, la carte Google Maps et un bouton de réservation visible.",
+      "Site vitrine integre en HTML, CSS et JavaScript pour presenter l'ambiance, le menu, les horaires, la galerie photo, la carte Google Maps et un bouton de reservation visible.",
     image: "/project-images/site-web-restaurant-main.png",
     imageAlt: "Restaurant chaleureux avec tables preparees pour illustrer un site vitrine",
     imageFit: "contain",
@@ -334,6 +336,7 @@ export const featuredProjects = [
       "Application web réalisée pour centraliser les biens, les demandes clients, les visites, les statuts et le suivi commercial dans un seul espace.",
     image: "/project-images/application-web-immobilier.png",
     imageAlt: "Maison moderne representant une application web pour agence immobiliere",
+    imageFit: "contain",
     imagePosition: "center",
   },
   {
@@ -461,7 +464,7 @@ export const faqs = [
   },
 ];
 
-export const projectTypes = ["Site vitrine", "WordPress", "Dashboard / app web", "Interface mobile", "Maintenance", "Refonte"];
+export const projectTypes = ["Site web", "WordPress", "Application web", "Application mobile", "Dashboard / app web", "Interface mobile", "Maintenance", "Refonte"];
 export const budgets = ["100 - 450 EUR", "1 000 - 3 000 EUR", "3 000 - 7 000 EUR", "7 000 EUR et plus"];
 export const timelines = ["Le plus vite possible", "2 a 4 semaines", "1 a 2 mois", "Planning flexible"];
 

@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Icon } from "../../components";
-import { landingStats } from "../../data";
 import LandingHeader from "./LandingHeader.jsx";
 import { PrimaryButton, SecondaryButton } from "./LandingButton.jsx";
 import { fadeUp, stagger } from "./motion.js";
@@ -20,56 +18,31 @@ export default function Hero({ motionConfig }) {
             transition={motionConfig.transition}
             className="inline-flex items-center rounded-lg border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-blue-100 shadow-[0_0_28px_rgba(0,102,255,0.22)]"
           >
-            Création de sites web pour indépendants et petites entreprises
+            Création web sur mesure
           </motion.p>
           <motion.h1
             variants={fadeUp}
             transition={motionConfig.transition}
             className="mt-6 text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Un site clair, rapide et crédible pour transformer vos visiteurs en clients.
+            Un site clair, moderne et prêt à convertir.
           </motion.h1>
           <motion.p
             variants={fadeUp}
             transition={motionConfig.transition}
             className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg"
           >
-            Je conçois des sites vitrines, WordPress et interfaces web avec une priorité simple : expliquer votre offre,
-            rassurer vos visiteurs et leur donner envie de vous contacter.
+            Sites vitrines, WordPress et interfaces web pour présenter votre activité et recevoir plus de demandes.
           </motion.p>
           <motion.div variants={fadeUp} transition={motionConfig.transition} className="mt-8 flex flex-col gap-3 sm:flex-row">
             <PrimaryButton href="#contact">Démarrer mon projet</PrimaryButton>
             <SecondaryButton href="#portfolio">Voir mes réalisations</SecondaryButton>
           </motion.div>
-          <HeroStats motionConfig={motionConfig} />
         </motion.div>
 
         <HeroImage motionConfig={motionConfig} />
       </div>
     </section>
-  );
-}
-
-function HeroStats({ motionConfig }) {
-  return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={stagger}
-      className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-white/10 pt-6 sm:grid-cols-4"
-    >
-      {landingStats.map((item) => (
-        <motion.div key={item.value} variants={fadeUp} transition={motionConfig.transition} className="flex items-start gap-3">
-          <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md border border-blue-400/35 bg-blue-500/10 text-blue-300">
-            <Icon name={item.icon} className="h-3.5 w-3.5" />
-          </span>
-          <span>
-            <span className="block text-sm font-black text-white">{item.value}</span>
-            <span className="mt-1 block text-xs text-slate-400">{item.label}</span>
-          </span>
-        </motion.div>
-      ))}
-    </motion.div>
   );
 }
 
@@ -86,7 +59,9 @@ function HeroImage({ motionConfig }) {
         <img
           src="/hero-image.png"
           alt="Aperçu de création web Web Engineer"
-          className="aspect-[16/10] w-full rounded-[1rem] object-cover object-center"
+          className="aspect-[3/2] w-full rounded-[1rem] object-contain object-center"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-gradient-to-tr from-[#020813]/25 via-transparent to-blue-500/10" />
       </div>

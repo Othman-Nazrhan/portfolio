@@ -1,6 +1,6 @@
 export { default as HeroSection } from "./HeroSection.jsx";
 export { default as ServicesSection } from "./ServicesSection.jsx";
-export { default as FreelancerSection } from "./FreelancerSection.jsx";
+export { default as StartupSection } from "./StartupSection.jsx";
 export { default as PricingSection } from "./PricingSection.jsx";
 export { default as ExpertiseSection } from "./ExpertiseSection.jsx";
 export { default as ProjectsSection } from "./ProjectsSection.jsx";

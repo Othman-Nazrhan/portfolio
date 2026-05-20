@@ -5,7 +5,7 @@ export default function BrandLogo({ compact = false }) {
 
   return (
     <span className={`block overflow-hidden ${sizeClass}`}>
-      <img src={brandLogo} alt={brandName} className="h-full w-full object-cover object-center" />
+      <img src={brandLogo} alt={brandName} className="h-full w-full object-cover object-center" decoding="async" />
     </span>
   );
 }
