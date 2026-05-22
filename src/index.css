@@ -74,6 +74,33 @@ body {
   }
 }
 
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+  }
+}
+
+@keyframes shimmer-text {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes subtle-shift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+}
+
 .animated-aurora {
   background-size: 180% 180%;
   animation: aurora-pan 12s ease-in-out infinite;
@@ -110,6 +137,29 @@ body {
 .motion-card:hover .motion-media {
   transform: scale(1.045);
   filter: saturate(1.16) contrast(1.04);
+}
+
+.glow-effect {
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+}
+
+.glow-effect:hover {
+  animation: glow-pulse 2s ease-in-out;
+}
+
+.card-depth {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+.card-depth:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 30px 80px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(56, 189, 248, 0.2);
 }
 
 .float-soft {

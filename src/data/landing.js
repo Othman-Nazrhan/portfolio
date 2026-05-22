@@ -94,7 +94,7 @@ export const landingProjects = [
     result: "Site plus stable",
     description: "Maintenance et optimisation d'une boutique pour fiabiliser le parcours d'achat, les mises à jour et les performances.",
     tags: ["Maintenance", "Performance", "Support"],
-    image: "/project-images/maintenance-boutique-en-ligne.png",
+    image: "/project-images/maintenance-urban-cart-dashboard.png",
   },
   {
     type: "Landing page",

@@ -33,7 +33,7 @@ export default function Portfolio({ motionConfig }) {
           variants={fadeUp}
           whileHover={motionConfig.hoverLift}
           transition={motionConfig.transition}
-          className="group overflow-hidden rounded-lg border border-blue-400/20 bg-[#07101f] transition hover:border-blue-400/55"
+          className="group overflow-hidden rounded-lg border border-blue-400/20 bg-[#07101f] transition hover:border-blue-400/55 shadow-2xl shadow-blue-600/20 hover:shadow-3xl hover:shadow-blue-500/30"
         >
           <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
             <div className="relative min-h-80 overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r lg:border-white/10">
@@ -71,7 +71,7 @@ export default function Portfolio({ motionConfig }) {
               </div>
               <a
                 href="/portfolio"
-                className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 text-sm font-black text-white transition hover:bg-blue-500"
+                className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 text-sm font-black text-white transition shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
               >
                 Voir l'étude complète
                 <Icon name="arrow" className="h-4 w-4" />
@@ -93,16 +93,16 @@ export default function Portfolio({ motionConfig }) {
         ))}
       </motion.div>
 
-      <div className="mt-5 rounded-xl border border-white/12 bg-white/[0.035] p-5">
+      <div className="mt-5 rounded-xl border border-blue-400/15 bg-white/[0.025] p-5 shadow-xl shadow-blue-600/10">
         <div className="grid gap-4 sm:grid-cols-3">
           {projectStats.map(([value, label]) => (
-            <div key={label} className="rounded-lg border border-white/10 bg-[#07101f]/70 p-4 text-center">
+            <div key={label} className="rounded-lg border border-blue-400/20 bg-gradient-to-br from-blue-500/10 to-sky-400/5 p-4 text-center shadow-md shadow-blue-600/10">
               <p className="text-2xl font-black text-white">{value}</p>
               <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">{label}</p>
             </div>
           ))}
         </div>
-        <div className="mt-5 flex flex-col justify-between gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-center">
+        <div className="mt-5 flex flex-col justify-between gap-4 border-t border-blue-400/20 pt-5 sm:flex-row sm:items-center">
           <p className="max-w-xl text-sm leading-6 text-slate-300">
             Besoin de voir plus de cas avant de lancer votre site ? Le portfolio détaillé présente les objectifs, les
             écrans et les livrables.
@@ -123,7 +123,7 @@ function ProjectMiniCard({ project, motionConfig }) {
       variants={fadeUp}
       whileHover={motionConfig.hoverLift}
       transition={motionConfig.transition}
-      className="group grid overflow-hidden rounded-xl border border-white/12 bg-white/[0.035] shadow-[0_22px_70px_rgba(0,0,0,0.22)] transition hover:border-blue-400/50 sm:grid-cols-[15rem_1fr]"
+      className="group grid overflow-hidden rounded-xl border border-blue-400/15 bg-white/[0.03] shadow-2xl shadow-blue-600/10 hover:border-blue-400/40 hover:shadow-3xl hover:shadow-blue-500/20 sm:grid-cols-[15rem_1fr]"
     >
       <div className="h-48 overflow-hidden border-b border-white/10 bg-[#07101f] sm:h-full sm:border-b-0 sm:border-r sm:border-white/10">
         <img

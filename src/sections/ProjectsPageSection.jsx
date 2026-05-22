@@ -5,6 +5,25 @@ import { AnimatedSection, Icon } from "../components";
 import { getProjectImageSrcSet, setImageWidth } from "../utils";
 
 const projectFilters = ["Tous", ...Array.from(new Set(projectCatalog.map((project) => project.category)))];
+const technologyLogos = {
+  HTML: { label: "HTML", mark: "H", className: "border-orange-300/25 bg-orange-500/12 text-orange-100" },
+  CSS: { label: "CSS", mark: "C", className: "border-sky-300/25 bg-sky-500/12 text-sky-100" },
+  "HTML/CSS": { label: "HTML/CSS", mark: "</>", className: "border-blue-300/25 bg-blue-500/12 text-blue-100" },
+  "HTML/CSS/JS": { label: "HTML/CSS/JS", mark: "</>", className: "border-blue-300/25 bg-blue-500/12 text-blue-100" },
+  JavaScript: { label: "JavaScript", mark: "JS", className: "border-yellow-300/25 bg-yellow-400/12 text-yellow-100" },
+  React: { label: "React", mark: "R", className: "border-cyan-300/25 bg-cyan-400/12 text-cyan-100" },
+  "React Native": { label: "React Native", mark: "RN", className: "border-cyan-300/25 bg-cyan-500/12 text-cyan-100" },
+  TailwindCSS: { label: "Tailwind", mark: "TW", className: "border-teal-300/25 bg-teal-400/12 text-teal-100" },
+  WordPress: { label: "WordPress", mark: "W", className: "border-blue-200/25 bg-blue-400/12 text-blue-100" },
+  "Theme custom": { label: "Theme custom", mark: "UI", className: "border-violet-300/25 bg-violet-500/12 text-violet-100" },
+  UX: { label: "UX", mark: "UX", className: "border-fuchsia-300/25 bg-fuchsia-500/12 text-fuchsia-100" },
+  Motion: { label: "Motion", mark: "M", className: "border-pink-300/25 bg-pink-500/12 text-pink-100" },
+  "Responsive UI": { label: "Responsive UI", mark: "UI", className: "border-emerald-300/25 bg-emerald-500/12 text-emerald-100" },
+  "API-ready": { label: "API-ready", mark: "API", className: "border-indigo-300/25 bg-indigo-500/12 text-indigo-100" },
+  "SEO base": { label: "SEO", mark: "SEO", className: "border-lime-300/25 bg-lime-500/12 text-lime-100" },
+  SEO: { label: "SEO", mark: "SEO", className: "border-lime-300/25 bg-lime-500/12 text-lime-100" },
+  Hosting: { label: "Hosting", mark: "H", className: "border-slate-300/25 bg-slate-500/12 text-slate-100" },
+};
 
 export default function ProjectsPageSection({ motionConfig }) {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -105,18 +124,20 @@ function ProjectFilters({ activeFilter, onChange }) {
         const isActive = filter === activeFilter;
 
         return (
-          <button
+          <motion.button
             key={filter}
             type="button"
             onClick={() => onChange(filter)}
+            whileHover={{ scale: isActive ? 1 : 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={`rounded-xl border px-4 py-2 text-sm font-black transition ${
               isActive
-                ? "border-blue-500 bg-blue-500 text-white"
-                : "border-white/10 bg-white/[0.04] text-slate-300 hover:border-blue-500/40 hover:text-white"
+                ? "border-blue-400 bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30"
+                : "border-white/15 bg-white/[0.05] text-slate-300 hover:border-blue-400/60 hover:text-white hover:bg-white/[0.08] hover:shadow-lg hover:shadow-blue-400/20"
             }`}
           >
             {filter}
-          </button>
+          </motion.button>
         );
       })}
     </div>
@@ -130,7 +151,7 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
       whileTap={motionConfig.tapPress}
-      className={`mt-10 overflow-hidden rounded-2xl ${glassBase}`}
+      className={`mt-10 overflow-hidden rounded-2xl ${glassBase} border-blue-400/20 shadow-2xl shadow-blue-600/20 hover:border-blue-400/40 hover:shadow-3xl hover:shadow-blue-500/30 transition duration-300`}
     >
       <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
         <button type="button" onClick={onOpen} className="group relative min-h-80 overflow-hidden text-left">
@@ -139,13 +160,13 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
             srcSet={getProjectImageSrcSet(project.image)}
             sizes="(min-width: 1024px) 58vw, 100vw"
             alt={project.imageAlt}
-            className="motion-media h-full min-h-80 w-full object-cover saturate-110"
+            className="motion-media h-full min-h-80 w-full object-cover saturate-110 group-hover:saturate-125 transition duration-500"
             style={{ objectFit: project.imageFit ?? "cover", objectPosition: project.imagePosition }}
             loading="eager"
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/22 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 group-hover:from-black/60 group-hover:via-black/20 transition duration-500" />
           <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
           <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-3">
             <ProjectBadge>{project.category}</ProjectBadge>
@@ -154,10 +175,10 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
           </div>
         </button>
 
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-8 bg-gradient-to-br from-white/[0.03] to-white/[0.01]">
           <ProjectBrand project={project} />
-          <p className="mt-7 text-sm font-black uppercase tracking-[0.18em] text-sky-200">Projet sélectionné</p>
-          <h3 className="mt-4 text-2xl font-black tracking-tight text-white">{project.title}</h3>
+          <p className="mt-7 text-xs font-black uppercase tracking-[0.18em] text-sky-300">Projet sélectionné</p>
+          <h3 className="mt-4 text-3xl font-black tracking-tight text-white leading-tight">{project.title}</h3>
           <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{project.description}</p>
           <ProjectThumbStrip project={project} />
 
@@ -166,15 +187,18 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
             <ProjectMeta label="Délai" value={project.timeline} />
             <ProjectMeta label="Resultat" value={project.result} />
           </div>
+          <TechStack items={project.stack} compact variant="hero" />
 
-          <button
+          <motion.button
             type="button"
             onClick={onOpen}
-            className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 text-sm font-black text-white transition shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-600/30"
           >
             Ouvrir la fiche complète
             <Icon name="arrow" className="h-4 w-4" />
-          </button>
+          </motion.button>
         </div>
       </div>
     </motion.article>
@@ -188,7 +212,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
       whileTap={motionConfig.tapPress}
-      className={`overflow-hidden rounded-2xl transition duration-300 hover:border-blue-500/35 hover:bg-white/[0.08] ${glassBase}`}
+      className={`overflow-hidden rounded-2xl transition duration-300 hover:border-blue-400/40 hover:bg-white/[0.06] shadow-xl shadow-blue-600/10 hover:shadow-2xl hover:shadow-blue-500/20 ${glassBase}`}
     >
       <button type="button" onClick={onOpen} className="group relative block w-full overflow-hidden text-left">
         <img
@@ -196,7 +220,7 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
           srcSet={getProjectImageSrcSet(project.image)}
           sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 100vw"
           alt={project.imageAlt}
-          className="motion-media aspect-[16/10] w-full object-cover saturate-110"
+          className="motion-media aspect-[16/10] w-full object-cover saturate-110 group-hover:saturate-125 transition duration-500"
           style={{ objectFit: project.imageFit ?? "cover", objectPosition: project.imagePosition }}
           loading="lazy"
           decoding="async"
@@ -231,16 +255,18 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
             <ProjectMeta label="Resultat" value={project.result} />
           </div>
 
-          <TagGroup title="Stack" items={project.stack} />
+          <TechStack items={project.stack} variant="inline" />
 
-          <button
+          <motion.button
             type="button"
             onClick={onOpen}
-            className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-5 text-sm font-black text-white transition shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-600/30"
           >
             Lire la fiche projet
             <Icon name="arrow" className="h-4 w-4" />
-          </button>
+          </motion.button>
       </div>
     </motion.article>
   );
@@ -248,8 +274,8 @@ function ProjectDetailCard({ project, motionConfig, onOpen }) {
 
 function ProjectMeta({ label, value }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
-      <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">{label}</p>
+    <div className="rounded-2xl border border-blue-400/15 bg-gradient-to-br from-blue-500/8 to-sky-400/5 p-4 shadow-lg shadow-blue-600/5">
+      <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">{label}</p>
       <p className="mt-2 text-sm font-black text-white">{value}</p>
     </div>
   );
@@ -257,7 +283,7 @@ function ProjectMeta({ label, value }) {
 
 function ProjectBadge({ children }) {
   return (
-    <span className="rounded-lg border border-white/15 bg-black/45 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-white backdrop-blur-md">
+    <span className="rounded-lg border border-white/20 bg-gradient-to-r from-blue-500/20 to-sky-400/20 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-white backdrop-blur-md shadow-lg shadow-blue-600/20">
       {children}
     </span>
   );
@@ -439,6 +465,62 @@ function TagGroup({ title, items }) {
   );
 }
 
+function TechStack({ items, compact = false, variant = "default" }) {
+  if (!items?.length) {
+    return null;
+  }
+
+  const isHero = variant === "hero";
+  const isInline = variant === "inline";
+
+  return (
+    <div
+      className={
+        isInline
+          ? "mt-5 border-t border-white/10 pt-5"
+          : isHero
+            ? "mt-6 rounded-2xl border border-white/10 bg-white/[0.035] p-4"
+            : "mt-6"
+      }
+    >
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-sky-200">Technologies</p>
+        {isHero && <p className="text-xs font-bold text-slate-500">{items.length} outils</p>}
+      </div>
+      <div className={`mt-3 flex flex-wrap gap-2 ${compact ? "" : ""}`}>
+        {items.map((item) => (
+          <TechnologyBadge key={item} item={item} dense={isInline} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TechnologyBadge({ item, dense = false }) {
+  const logo = technologyLogos[item] ?? {
+    label: item,
+    mark: item.slice(0, 2).toUpperCase(),
+    className: "border-white/15 bg-white/[0.06] text-slate-100",
+  };
+
+  return (
+    <span
+      className={`flex min-w-0 items-center gap-2 rounded-xl border ${logo.className} ${
+        dense ? "px-2.5 py-2" : "px-3 py-2.5"
+      }`}
+    >
+      <span
+        className={`grid shrink-0 place-items-center rounded-lg border border-white/15 bg-black/20 font-black ${
+          dense ? "h-7 w-7 text-[10px]" : "h-8 w-8 text-[11px]"
+        }`}
+      >
+        {logo.mark}
+      </span>
+      <span className="truncate text-xs font-black">{logo.label}</span>
+    </span>
+  );
+}
+
 function ProjectDialog({ project, onClose }) {
   if (!project) {
     return null;
@@ -446,21 +528,22 @@ function ProjectDialog({ project, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/72 px-4 py-8 backdrop-blur-md"
+      className="fixed inset-0 z-50 grid place-items-center bg-black/75 px-4 py-8 backdrop-blur-lg"
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-dialog-title"
       onMouseDown={onClose}
     >
       <motion.article
-        initial={{ opacity: 0, y: 28, scale: 0.98 }}
+        initial={{ opacity: 0, y: 40, scale: 0.92 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.22, ease: "easeOut" }}
+        exit={{ opacity: 0, y: 40, scale: 0.92 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
         onMouseDown={(event) => event.stopPropagation()}
-        className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-white/10 bg-[#0b0f16] shadow-2xl shadow-black/50"
+        className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-blue-400/20 bg-gradient-to-br from-[#0b0f16] to-[#07101f] shadow-2xl shadow-blue-600/30"
       >
         <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="border-b border-white/10 bg-[#080b12] p-5 lg:border-b-0 lg:border-r">
+          <div className="border-b border-blue-400/15 bg-gradient-to-br from-[#0b0f16] to-[#08101a] p-5 lg:border-b-0 lg:border-r">
             <img
               src={setImageWidth(project.image, 1280)}
               srcSet={getProjectImageSrcSet(project.image)}
@@ -505,7 +588,7 @@ function ProjectDialog({ project, onClose }) {
               <ProjectTextBlock title="Solution" text={project.solution} />
             </div>
 
-            <TagGroup title="Stack" items={project.stack} />
+            <TechStack items={project.stack} />
             <TagGroup title="Fonctionnalités" items={project.features} />
             <TagGroup title="Livrables" items={project.deliverables} />
 
