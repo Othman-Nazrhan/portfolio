@@ -517,14 +517,132 @@ function TechnologyBadge({ item, dense = false }) {
       }`}
     >
       <span
-        className={`grid shrink-0 place-items-center rounded-lg border border-white/15 bg-black/20 font-black ${
-          dense ? "h-7 w-7 text-[10px]" : "h-8 w-8 text-[11px]"
+        className={`grid shrink-0 place-items-center rounded-lg border border-white/15 bg-black/25 shadow-inner shadow-white/5 ${
+          dense ? "h-7 w-7" : "h-8 w-8"
         }`}
       >
-        {logo.mark}
+        <TechLogo name={logo.icon} className={dense ? "h-4 w-4" : "h-5 w-5"} />
       </span>
       <span className="truncate text-xs font-black">{logo.label}</span>
     </span>
+  );
+}
+
+function TechLogo({ name, className }) {
+  const iconClass = className ?? "h-5 w-5";
+
+  if (name === "html" || name === "css") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M5 3h14l-1.3 15.2L12 21l-5.7-2.8L5 3Z" />
+        <path d={name === "html" ? "M9 8h6l-.3 3H10l.2 3 1.8.8 1.8-.8.1-1.5" : "M15.5 8H9l.4 3H15l-.4 4-2.6 1-2.6-1-.2-1.6"} />
+      </svg>
+    );
+  }
+
+  if (name === "javascript") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="3" />
+        <path d="M9.5 9v5.2c0 1.1-.6 1.8-1.7 1.8-.6 0-1-.2-1.3-.5M13 15.3c.5.5 1.2.7 2 .7 1 0 1.7-.4 1.7-1.2 0-.7-.4-1-1.8-1.4-1.2-.4-1.8-.9-1.8-2 0-1.2 1-2 2.4-2 .8 0 1.4.2 1.9.6" />
+      </svg>
+    );
+  }
+
+  if (name === "react") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />
+        <ellipse cx="12" cy="12" rx="8.5" ry="3.4" />
+        <ellipse cx="12" cy="12" rx="8.5" ry="3.4" transform="rotate(60 12 12)" />
+        <ellipse cx="12" cy="12" rx="8.5" ry="3.4" transform="rotate(120 12 12)" />
+      </svg>
+    );
+  }
+
+  if (name === "tailwind") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4 13.5c1.7-3.2 3.8-4.8 6.4-4.8 1.6 0 2.6.6 3.6 1.8.8.9 1.6 1.4 2.8 1.4 1.2 0 2.3-.7 3.2-2.1-1.7 3.2-3.8 4.8-6.4 4.8-1.6 0-2.6-.6-3.6-1.8-.8-.9-1.6-1.4-2.8-1.4-1.2 0-2.3.7-3.2 2.1Z" />
+      </svg>
+    );
+  }
+
+  if (name === "wordpress") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M7 8.8 9.4 16M12 8.8 14.1 16M17.2 8.8 14.1 16M5.7 8.8h2.8M10.8 8.8h2.4M15.5 8.8h2.8" />
+      </svg>
+    );
+  }
+
+  if (name === "palette") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 3a9 9 0 0 0 0 18h1.1a2 2 0 0 0 1.8-2.8 1.7 1.7 0 0 1 1.5-2.5H18A6.4 6.4 0 0 0 18 3h-6Z" />
+        <path d="M7.8 10h.01M10.8 7.8h.01M14.3 8.5h.01" />
+      </svg>
+    );
+  }
+
+  if (name === "ux") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="4" y="5" width="16" height="12" rx="2.5" />
+        <path d="M8 9h8M8 13h4M10 20h4M12 17v3" />
+      </svg>
+    );
+  }
+
+  if (name === "motion") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="m4 15 4-6 4 6 4-6 4 6" />
+      </svg>
+    );
+  }
+
+  if (name === "responsive") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="5" width="12" height="10" rx="2" />
+        <rect x="16" y="8" width="5" height="11" rx="1.5" />
+        <path d="M7 19h5M9.5 15v4" />
+      </svg>
+    );
+  }
+
+  if (name === "api") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M8 7 3 12l5 5M16 7l5 5-5 5M13.5 4l-3 16" />
+      </svg>
+    );
+  }
+
+  if (name === "seo") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="5.5" />
+        <path d="m15 15 4.5 4.5M8 11.5l1.5 1.5L13 9" />
+      </svg>
+    );
+  }
+
+  if (name === "hosting") {
+    return (
+      <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M7.5 18.5h9a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.7-1.6A4.7 4.7 0 0 0 7.5 18.5Z" />
+        <path d="M9 14h6" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" className={iconClass} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M10 16.5 5.5 12 10 7.5M14 7.5l4.5 4.5-4.5 4.5M13 4l-2 16" />
+    </svg>
   );
 }
 

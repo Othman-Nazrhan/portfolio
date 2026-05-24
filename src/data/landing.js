@@ -81,11 +81,11 @@ export const landingPlans = [
 
 export const landingProjects = [
   {
-    type: "Refonte",
+    type: "Refonte de site",
     title: "Cabinet professionnel",
     result: "Image plus premium",
     description: "Refonte d'un site professionnel avec une présentation plus rassurante, un parcours mobile plus clair et un bouton de contact visible.",
-    tags: ["Refonte UI", "Responsive", "Contact"],
+    tags: ["Design modernisé", "Responsive", "Contact"],
     image: "/project-images/refonte-clinique-nova-services.png",
   },
   {

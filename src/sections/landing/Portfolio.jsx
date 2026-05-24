@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import { Icon } from "../../components";
 import { landingProjects } from "../../data/landing.js";
 import LandingSection from "./LandingSection.jsx";
@@ -7,12 +7,6 @@ import { fadeUp, stagger } from "./motion.js";
 
 export default function Portfolio({ motionConfig }) {
   const [featuredProject, ...secondaryProjects] = landingProjects;
-  const projectStats = [
-    ["3", "projets sélectionnés"],
-    ["3", "catégories"],
-    ["100%", "mobile-ready"],
-  ];
-
   return (
     <LandingSection id="portfolio" eyebrow="Réalisations" title="Des projets concrets, conçus pour des besoins réels">
       <div className="mx-auto mt-7 max-w-3xl text-center">
@@ -93,24 +87,14 @@ export default function Portfolio({ motionConfig }) {
         ))}
       </motion.div>
 
-      <div className="mt-5 rounded-xl border border-blue-400/15 bg-white/[0.025] p-5 shadow-xl shadow-blue-600/10">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {projectStats.map(([value, label]) => (
-            <div key={label} className="rounded-lg border border-blue-400/20 bg-gradient-to-br from-blue-500/10 to-sky-400/5 p-4 text-center shadow-md shadow-blue-600/10">
-              <p className="text-2xl font-black text-white">{value}</p>
-              <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">{label}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-5 flex flex-col justify-between gap-4 border-t border-blue-400/20 pt-5 sm:flex-row sm:items-center">
-          <p className="max-w-xl text-sm leading-6 text-slate-300">
-            Besoin de voir plus de cas avant de lancer votre site ? Le portfolio détaillé présente les objectifs, les
-            écrans et les livrables.
-          </p>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <PrimaryButton href="/portfolio">Voir tout</PrimaryButton>
-            <SecondaryButton href="#contact">Demander un devis</SecondaryButton>
-          </div>
+      <div className="mt-5 flex flex-col justify-between gap-4 rounded-xl border border-blue-400/15 bg-white/[0.025] p-5 shadow-xl shadow-blue-600/10 sm:flex-row sm:items-center">
+        <p className="max-w-xl text-sm leading-6 text-slate-300">
+          Besoin de voir plus de cas avant de lancer votre site ? Le portfolio détaillé présente les objectifs, les
+          écrans et les livrables.
+        </p>
+        <div className="flex shrink-0 flex-wrap gap-3">
+          <PrimaryButton href="/portfolio">Voir tout</PrimaryButton>
+          <SecondaryButton href="#contact">Demander un devis</SecondaryButton>
         </div>
       </div>
     </LandingSection>
