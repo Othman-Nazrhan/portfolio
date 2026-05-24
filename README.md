@@ -1,15 +1,17 @@
-# DevStudio Portfolio
+# Web Engineer Portfolio
 
-Site startup pour presenter des services de creation de sites web, WordPress, applications web, interfaces mobiles, maintenance et refonte. Le site est construit avec React, Vite, Tailwind CSS et Framer Motion.
+Site startup pour présenter des services de création de sites web, WordPress, applications web, interfaces mobiles, maintenance et refonte. Le projet est construit avec React, Vite, Tailwind CSS et Framer Motion.
 
-## Apercu
+## Aperçu
 
-- Page d'accueil orientee conversion avec hero, services, tarifs, projets, CTA et contact.
-- Page portfolio accessible via `/portfolio`.
-- Catalogue de projets centralise dans `src/data/sections.js`.
-- Animations adaptees aux preferences `prefers-reduced-motion`.
-- Metadonnees SEO, Open Graph, Twitter Card et JSON-LD dans `index.html`.
-- Assets publics pour favicon, sitemap, robots.txt et images de projets.
+- Page d'accueil orientée conversion avec hero, services, process, offres, réalisations, avis, CTA et formulaire de brief.
+- Page portfolio accessible via `/portfolio`, avec filtres, fiches projets, galerie, zoom image et badges de technologies.
+- Catalogue de projets centralisé dans `src/data/sections.js`.
+- Contenus de landing centralisés dans `src/data/landing.js`.
+- Logos/badges de technologies configurés dans `src/data/technologies.js`.
+- Navigation interne gérée côté client dans `src/App.jsx`.
+- Animations adaptées à `prefers-reduced-motion`.
+- Métadonnées SEO, Open Graph, Twitter Card et JSON-LD dans `index.html`.
 
 ## Stack
 
@@ -31,13 +33,13 @@ npm install
 npm run dev
 ```
 
-Lance le serveur de developpement Vite.
+Lance le serveur de développement Vite.
 
 ```bash
 npm run build
 ```
 
-Genere la version de production dans `dist/`.
+Génère la version de production dans `dist/`.
 
 ```bash
 npm run preview
@@ -49,35 +51,43 @@ Sert localement le build de production.
 npm run lint
 ```
 
-Verifie le code avec ESLint.
+Vérifie le code avec ESLint.
 
 ## Structure
 
 ```text
 src/
-  components/   Composants UI reutilisables
-  data/         Contenus, navigation, styles, icones et configuration
-  hooks/        Hooks React partages
+  components/   Composants UI réutilisables
+  data/         Contenus, navigation, styles, icônes et technologies
+  hooks/        Hooks React partagés
   sections/     Sections principales des pages
   utils/        Helpers utilitaires
 public/
-  project-images/  Images utilisees par le catalogue de projets
-  favicon.svg
+  project-images/  Images utilisées par le catalogue de projets
+  fav.png
   robots.txt
   sitemap.xml
 ```
 
+## Optimisations
+
+- La home et la page portfolio sont lazy-loadées pour séparer les chunks principaux.
+- Le bouton de brief est séparé de la modale pour éviter de charger le formulaire complet dans les navigations.
+- Les badges de technologies sont configurés une seule fois dans `src/data/technologies.js`.
+- Les images externes compatibles passent par `src/utils/projectImages.js` pour générer des variantes de largeur.
+- Les animations utilisent `src/hooks/useMotionSettings.js` pour respecter les préférences de réduction de mouvement.
+
 ## Modifier le contenu
 
-- Nom de marque et email: `src/data/brand.js`
-- Navigation: `src/data/navigation.js`
-- Contenus de la landing (hero, services, process, offres, projets, avis, CTA badges): `src/data/landing.js`
-- Contenus additionnels du portfolio (catalogue projets, services/sections marketing, etc.): `src/data/sections.js`
-- Images de projets: `public/project-images/`
-- Metadonnees SEO globales: `index.html`
+- Nom de marque et email : `src/data/brand.js`
+- Navigation : `src/data/navigation.js`
+- Landing page : `src/data/landing.js`
+- Catalogue portfolio : `src/data/sections.js`
+- Badges technologies : `src/data/technologies.js`
+- Images de projets : `public/project-images/`
+- Métadonnées SEO globales : `index.html`
 
-
-Apres une modification de contenu ou d'interface, lancer:
+Après une modification de contenu ou d'interface, lancer :
 
 ```bash
 npm run lint
@@ -87,16 +97,15 @@ npm run build
 ## Routes
 
 - `/` affiche la page d'accueil.
-- `/portfolio` affiche la page detaillee des projets.
-- Les ancres internes utilisent les liens de navigation definis dans `src/data/navigation.js`.
+- `/portfolio` affiche la page détaillée des projets.
+- Les ancres internes utilisent les liens de navigation définis dans `src/data/landing.js` et `src/data/navigation.js`.
 
-## Deploiement
+## Déploiement
 
-Le projet genere un site statique. Apres `npm run build`, deployer le contenu du dossier `dist/` sur l'hebergeur choisi.
+Le projet génère un site statique. Après `npm run build`, déployer le contenu du dossier `dist/` sur l'hébergeur choisi.
 
-Avant mise en ligne, mettre a jour les URLs publiques dans:
+Avant mise en ligne, mettre à jour les URLs publiques dans :
 
 - `index.html`
 - `public/sitemap.xml`
 - `public/robots.txt`
-

@@ -9,7 +9,7 @@ export default function Portfolio({ motionConfig }) {
   const [featuredProject, ...secondaryProjects] = landingProjects;
   const projectStats = [
     ["3", "projets sélectionnés"],
-    ["4", "types de besoins"],
+    ["3", "catégories"],
     ["100%", "mobile-ready"],
   ];
 

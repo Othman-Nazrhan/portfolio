@@ -3,6 +3,10 @@ import { Icon } from "../../components";
 import { landingPlans } from "../../data";
 import LandingSection from "./LandingSection.jsx";
 
+function openBriefDialog() {
+  window.dispatchEvent(new Event("open-project-dialog"));
+}
+
 export default function Pricing({ motionConfig }) {
   return (
     <LandingSection id="pricing" eyebrow="Offres" title="Des formats clairs pour avancer sans perdre de temps">
@@ -33,8 +37,9 @@ export default function Pricing({ motionConfig }) {
                 </p>
               ))}
             </div>
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={openBriefDialog}
               className={`mt-8 inline-flex min-h-11 w-full items-center justify-center rounded-lg border px-5 text-sm font-black transition ${
                 plan.popular
                   ? "border-blue-500 bg-blue-600 text-white hover:bg-blue-500"
@@ -42,7 +47,7 @@ export default function Pricing({ motionConfig }) {
               }`}
             >
               {plan.cta}
-            </a>
+            </button>
           </motion.article>
         ))}
       </div>

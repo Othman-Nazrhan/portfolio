@@ -27,9 +27,6 @@ export default function CtaSection({ motionConfig }) {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button>Demander un devis</Button>
-              <Button href="#contact" variant="secondary">
-                Expliquer mon besoin
-              </Button>
             </div>
           </motion.div>
         </div>

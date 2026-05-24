@@ -1,36 +1,24 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { glassBase, projectCatalog, scaleIn } from "../data";
+import { getTechnologyLogo, glassBase, projectCatalog, scaleIn } from "../data";
 import { AnimatedSection, Icon } from "../components";
 import { getProjectImageSrcSet, setImageWidth } from "../utils";
 
-const projectFilters = ["Tous", ...Array.from(new Set(projectCatalog.map((project) => project.category)))];
-const technologyLogos = {
-  HTML: { label: "HTML", mark: "H", className: "border-orange-300/25 bg-orange-500/12 text-orange-100" },
-  CSS: { label: "CSS", mark: "C", className: "border-sky-300/25 bg-sky-500/12 text-sky-100" },
-  "HTML/CSS": { label: "HTML/CSS", mark: "</>", className: "border-blue-300/25 bg-blue-500/12 text-blue-100" },
-  "HTML/CSS/JS": { label: "HTML/CSS/JS", mark: "</>", className: "border-blue-300/25 bg-blue-500/12 text-blue-100" },
-  JavaScript: { label: "JavaScript", mark: "JS", className: "border-yellow-300/25 bg-yellow-400/12 text-yellow-100" },
-  React: { label: "React", mark: "R", className: "border-cyan-300/25 bg-cyan-400/12 text-cyan-100" },
-  "React Native": { label: "React Native", mark: "RN", className: "border-cyan-300/25 bg-cyan-500/12 text-cyan-100" },
-  TailwindCSS: { label: "Tailwind", mark: "TW", className: "border-teal-300/25 bg-teal-400/12 text-teal-100" },
-  WordPress: { label: "WordPress", mark: "W", className: "border-blue-200/25 bg-blue-400/12 text-blue-100" },
-  "Theme custom": { label: "Theme custom", mark: "UI", className: "border-violet-300/25 bg-violet-500/12 text-violet-100" },
-  UX: { label: "UX", mark: "UX", className: "border-fuchsia-300/25 bg-fuchsia-500/12 text-fuchsia-100" },
-  Motion: { label: "Motion", mark: "M", className: "border-pink-300/25 bg-pink-500/12 text-pink-100" },
-  "Responsive UI": { label: "Responsive UI", mark: "UI", className: "border-emerald-300/25 bg-emerald-500/12 text-emerald-100" },
-  "API-ready": { label: "API-ready", mark: "API", className: "border-indigo-300/25 bg-indigo-500/12 text-indigo-100" },
-  "SEO base": { label: "SEO", mark: "SEO", className: "border-lime-300/25 bg-lime-500/12 text-lime-100" },
-  SEO: { label: "SEO", mark: "SEO", className: "border-lime-300/25 bg-lime-500/12 text-lime-100" },
-  Hosting: { label: "Hosting", mark: "H", className: "border-slate-300/25 bg-slate-500/12 text-slate-100" },
-};
+const allProjectsFilter = "all";
+const projectFilters = [
+  { label: "Tout", value: allProjectsFilter },
+  ...Array.from(new Set(projectCatalog.map((project) => project.category))).map((category) => ({
+    label: category,
+    value: category,
+  })),
+];
 
 export default function ProjectsPageSection({ motionConfig }) {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("Tous");
+  const [activeFilter, setActiveFilter] = useState(allProjectsFilter);
 
   const visibleProjects =
-    activeFilter === "Tous" ? projectCatalog : projectCatalog.filter((project) => project.category === activeFilter);
+    activeFilter === allProjectsFilter ? projectCatalog : projectCatalog.filter((project) => project.category === activeFilter);
   const featuredProject = visibleProjects[0] ?? projectCatalog[0];
   const secondaryProjects = visibleProjects.filter((project) => project.title !== featuredProject.title);
 
@@ -121,13 +109,13 @@ function ProjectFilters({ activeFilter, onChange }) {
   return (
     <div className="mt-10 flex flex-wrap gap-3">
       {projectFilters.map((filter) => {
-        const isActive = filter === activeFilter;
+        const isActive = filter.value === activeFilter;
 
         return (
           <motion.button
-            key={filter}
+            key={filter.value}
             type="button"
-            onClick={() => onChange(filter)}
+            onClick={() => onChange(filter.value)}
             whileHover={{ scale: isActive ? 1 : 1.05 }}
             whileTap={{ scale: 0.95 }}
             className={`rounded-xl border px-4 py-2 text-sm font-black transition ${
@@ -136,7 +124,7 @@ function ProjectFilters({ activeFilter, onChange }) {
                 : "border-white/15 bg-white/[0.05] text-slate-300 hover:border-blue-400/60 hover:text-white hover:bg-white/[0.08] hover:shadow-lg hover:shadow-blue-400/20"
             }`}
           >
-            {filter}
+            {filter.label}
           </motion.button>
         );
       })}
@@ -147,6 +135,8 @@ function ProjectFilters({ activeFilter, onChange }) {
 function FeaturedProject({ project, motionConfig, onOpen }) {
   return (
     <motion.article
+      initial="hidden"
+      animate="visible"
       variants={scaleIn}
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
@@ -208,6 +198,8 @@ function FeaturedProject({ project, motionConfig, onOpen }) {
 function ProjectDetailCard({ project, motionConfig, onOpen }) {
   return (
     <motion.article
+      initial="hidden"
+      animate="visible"
       variants={scaleIn}
       transition={motionConfig.transition}
       whileHover={motionConfig.hoverLift}
@@ -277,6 +269,20 @@ function ProjectMeta({ label, value }) {
     <div className="rounded-2xl border border-blue-400/15 bg-gradient-to-br from-blue-500/8 to-sky-400/5 p-4 shadow-lg shadow-blue-600/5">
       <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-400">{label}</p>
       <p className="mt-2 text-sm font-black text-white">{value}</p>
+    </div>
+  );
+}
+
+function ProjectInsight({ icon, label, value }) {
+  return (
+    <div className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.045] p-4">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-blue-300/20 bg-blue-500/10 text-blue-200">
+        <Icon name={icon} className="h-4 w-4" />
+      </span>
+      <div className="min-w-0">
+        <p className="text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">{label}</p>
+        <p className="mt-1 text-sm font-black text-white">{value}</p>
+      </div>
     </div>
   );
 }
@@ -442,11 +448,16 @@ function ProjectGallery({ project }) {
     </div>
   );
 }
-function ProjectTextBlock({ title, text }) {
+function ProjectTextBlock({ title, text, icon = "check" }) {
   return (
-    <div>
-      <p className="text-sm font-black text-white">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-slate-400">{text}</p>
+    <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-5">
+      <div className="flex items-center gap-3">
+        <span className="grid h-9 w-9 place-items-center rounded-xl border border-blue-300/20 bg-blue-500/10 text-blue-200">
+          <Icon name={icon} className="h-4 w-4" />
+        </span>
+        <p className="text-sm font-black text-white">{title}</p>
+      </div>
+      <p className="mt-4 text-sm leading-7 text-slate-400">{text}</p>
     </div>
   );
 }
@@ -497,11 +508,7 @@ function TechStack({ items, compact = false, variant = "default" }) {
 }
 
 function TechnologyBadge({ item, dense = false }) {
-  const logo = technologyLogos[item] ?? {
-    label: item,
-    mark: item.slice(0, 2).toUpperCase(),
-    className: "border-white/15 bg-white/[0.06] text-slate-100",
-  };
+  const logo = getTechnologyLogo(item);
 
   return (
     <span
@@ -526,6 +533,11 @@ function ProjectDialog({ project, onClose }) {
     return null;
   }
 
+  const openBriefDialog = () => {
+    onClose();
+    window.dispatchEvent(new Event("open-project-dialog"));
+  };
+
   return (
     <div
       className="fixed inset-0 z-50 grid place-items-center bg-black/75 px-4 py-8 backdrop-blur-lg"
@@ -540,9 +552,32 @@ function ProjectDialog({ project, onClose }) {
         exit={{ opacity: 0, y: 40, scale: 0.92 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
         onMouseDown={(event) => event.stopPropagation()}
-        className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-blue-400/20 bg-gradient-to-br from-[#0b0f16] to-[#07101f] shadow-2xl shadow-blue-600/30"
+        className="max-h-[92vh] w-full max-w-6xl overflow-y-auto rounded-2xl border border-blue-400/20 bg-[#07101f] shadow-2xl shadow-blue-600/30"
       >
-        <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="sticky top-0 z-10 border-b border-white/10 bg-[#07101f]/95 p-5 backdrop-blur-xl sm:p-6">
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <ProjectBrand project={project} />
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <ProjectBadge>{project.category}</ProjectBadge>
+                <ProjectBadge>{project.status}</ProjectBadge>
+              </div>
+              <h3 id="project-dialog-title" className="mt-4 text-2xl font-black tracking-tight text-white sm:text-3xl">
+                {project.title}
+              </h3>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-xl font-black text-white transition hover:border-blue-500/40 hover:text-sky-200"
+              aria-label="Fermer la fiche projet"
+            >
+              x
+            </button>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
           <div className="border-b border-blue-400/15 bg-gradient-to-br from-[#0b0f16] to-[#08101a] p-5 lg:border-b-0 lg:border-r">
             <img
               src={setImageWidth(project.image, 1280)}
@@ -559,47 +594,40 @@ function ProjectDialog({ project, onClose }) {
               <ProjectMeta label="Délai" value={project.timeline} />
               <ProjectMeta label="Resultat" value={project.result} />
             </div>
+            <BrandAssetBadges assets={project.brand?.assets} />
           </div>
 
           <div className="p-6 sm:p-8">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <ProjectBrand project={project} />
-                <p className="mt-5 text-xs font-black uppercase tracking-[0.18em] text-sky-200">{project.category}</p>
-                <h3 id="project-dialog-title" className="mt-3 text-2xl font-black tracking-tight text-white">
-                  {project.title}
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={onClose}
-                className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-xl font-black text-white transition hover:border-blue-500/40 hover:text-sky-200"
-                aria-label="Fermer la fiche projet"
-              >
-                x
-              </button>
+            <div className="rounded-2xl border border-blue-400/15 bg-gradient-to-br from-blue-500/10 to-white/[0.025] p-5">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-sky-200">Résumé du projet</p>
+              <p className="mt-3 text-base leading-8 text-slate-300">{project.description}</p>
             </div>
 
-            <p className="mt-5 text-base leading-8 text-slate-300">{project.description}</p>
-            <BrandAssetBadges assets={project.brand?.assets} />
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <ProjectInsight icon="target" label="Objectif" value={project.result} />
+              <ProjectInsight icon="clock" label="Planning" value={project.timeline} />
+              <ProjectInsight icon="euro" label="Budget" value={project.budget} />
+            </div>
 
             <div className="mt-7 grid gap-5 md:grid-cols-2">
-              <ProjectTextBlock title="Problème" text={project.challenge} />
-              <ProjectTextBlock title="Solution" text={project.solution} />
+              <ProjectTextBlock title="Problème" text={project.challenge} icon="target" />
+              <ProjectTextBlock title="Solution" text={project.solution} icon="spark" />
             </div>
 
             <TechStack items={project.stack} />
-            <TagGroup title="Fonctionnalités" items={project.features} />
-            <TagGroup title="Livrables" items={project.deliverables} />
+            <div className="mt-7 grid gap-5 md:grid-cols-2">
+              <TagGroup title="Fonctionnalités" items={project.features} />
+              <TagGroup title="Livrables" items={project.deliverables} />
+            </div>
 
-            <a
-              href="/#contact"
-              onClick={onClose}
-              className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-blue-500 px-5 text-sm font-black text-white transition hover:bg-blue-400"
+            <button
+              type="button"
+              onClick={openBriefDialog}
+              className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-5 text-sm font-black text-white shadow-lg shadow-blue-500/20 transition hover:from-blue-400 hover:to-blue-500 sm:w-auto"
             >
               Discuter d'un projet similaire
               <Icon name="arrow" className="h-4 w-4" />
-            </a>
+            </button>
           </div>
         </div>
       </motion.article>

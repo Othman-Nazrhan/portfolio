@@ -4,7 +4,6 @@ export default function useMotionSettings() {
   const reduceMotion = useReducedMotion();
 
   const easeCustom = [0.22, 1, 0.36, 1];
-  const easeQuick = [0.34, 1.56, 0.64, 1];
 
   return {
     reduceMotion,

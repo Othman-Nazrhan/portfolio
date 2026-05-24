@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { Icon } from "../../components";
 import buildMailto from "../../utils/buildMailto";
 
@@ -8,10 +8,15 @@ const timelines = ["Urgent", "1 à 2 semaines", "Ce mois-ci", "Je compare les op
 
 export default function ProjectDialog() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef(null);
 
   useEffect(() => {
-    const openDialog = () => setIsOpen(true);
+    const openDialog = () => {
+      setIsSubmitted(false);
+      setIsOpen(true);
+    };
+
     window.addEventListener("open-project-dialog", openDialog);
     return () => window.removeEventListener("open-project-dialog", openDialog);
   }, []);
@@ -31,10 +36,12 @@ export default function ProjectDialog() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
+  const closeDialog = () => setIsOpen(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     window.location.href = buildMailto(formRef.current);
-    setIsOpen(false);
+    setIsSubmitted(true);
   };
 
   if (!isOpen) {
@@ -43,12 +50,7 @@ export default function ProjectDialog() {
 
   return (
     <div className="fixed inset-0 z-50 grid place-items-center px-4 py-6">
-      <button
-        type="button"
-        aria-label="Fermer"
-        onClick={() => setIsOpen(false)}
-        className="absolute inset-0 bg-[#020813]/80 backdrop-blur-xl"
-      />
+      <button type="button" aria-label="Fermer" onClick={closeDialog} className="absolute inset-0 bg-[#020813]/80 backdrop-blur-xl" />
       <div className="relative max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-blue-300/25 bg-[#07101f] p-5 shadow-[0_35px_120px_rgba(0,0,0,0.65)] sm:p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -61,12 +63,21 @@ export default function ProjectDialog() {
           </div>
           <button
             type="button"
-            onClick={() => setIsOpen(false)}
+            onClick={closeDialog}
             className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-xl font-black text-white transition hover:border-blue-400/60 hover:text-blue-200"
           >
             ×
           </button>
         </div>
+
+        {isSubmitted && (
+          <div className="mt-7 rounded-xl border border-emerald-300/25 bg-emerald-500/10 p-4 text-sm leading-6 text-emerald-50">
+            <p className="font-black">Votre demande est prête.</p>
+            <p className="mt-1 text-emerald-100/85">
+              Votre messagerie vient de s'ouvrir avec le brief préparé. Envoyez l'email pour finaliser la demande.
+            </p>
+          </div>
+        )}
 
         <form ref={formRef} onSubmit={handleSubmit} className="mt-7 grid gap-4">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -124,16 +135,17 @@ export default function ProjectDialog() {
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:justify-end">
             <button
               type="button"
-              onClick={() => setIsOpen(false)}
+              onClick={closeDialog}
               className="inline-flex min-h-11 items-center justify-center rounded-lg border border-white/15 bg-white/[0.035] px-5 text-sm font-black text-white transition hover:border-blue-400/60 hover:bg-blue-500/10"
             >
-              Annuler
+              {isSubmitted ? "Fermer" : "Annuler"}
             </button>
             <button
               type="submit"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 text-sm font-black text-white shadow-[0_14px_46px_rgba(0,102,255,0.32)] transition hover:bg-blue-500"
+              disabled={isSubmitted}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 text-sm font-black text-white shadow-[0_14px_46px_rgba(0,102,255,0.32)] transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Préparer ma demande
+              {isSubmitted ? "Demande préparée" : "Préparer ma demande"}
               <Icon name="arrow" className="h-4 w-4" />
             </button>
           </div>

@@ -8,6 +8,7 @@ export default function Button({
   type,
   variant = "primary",
 }) {
+  const opensBriefDialog = !type && href === "#contact";
   const variants = {
     primary:
       "bg-blue-500 text-white shadow-[0_18px_44px_rgba(0,132,255,0.22)] hover:-translate-y-0.5 hover:bg-blue-400 focus-visible:ring-blue-500",
@@ -15,13 +16,14 @@ export default function Button({
       "border border-white/12 bg-white/[0.04] text-white backdrop-blur-xl hover:-translate-y-0.5 hover:border-sky-400/45 hover:bg-white/[0.08] focus-visible:ring-sky-400",
   };
 
-  const Component = type ? motion.button : motion.a;
+  const Component = type || opensBriefDialog ? motion.button : motion.a;
 
   return (
     <Component
       whileTap={{ scale: 0.98 }}
-      href={type ? undefined : href}
-      type={type}
+      href={type || opensBriefDialog ? undefined : href}
+      type={type ?? (opensBriefDialog ? "button" : undefined)}
+      onClick={opensBriefDialog ? () => window.dispatchEvent(new Event("open-project-dialog")) : undefined}
       className={`group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-black transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:px-6 ${variants[variant]} ${className}`}
     >
       {children}

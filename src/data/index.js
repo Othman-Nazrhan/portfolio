@@ -5,4 +5,5 @@ export * from "./styles.js";
 export * from "./icons.js";
 export * from "./sections.js";
 export * from "./landing.js";
+export * from "./technologies.js";
 

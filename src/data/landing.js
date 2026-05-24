@@ -81,15 +81,15 @@ export const landingPlans = [
 
 export const landingProjects = [
   {
-    type: "Site vitrine",
+    type: "Refonte",
     title: "Cabinet professionnel",
     result: "Image plus premium",
     description: "Refonte d'un site professionnel avec une présentation plus rassurante, un parcours mobile plus clair et un bouton de contact visible.",
     tags: ["Refonte UI", "Responsive", "Contact"],
-    image: "/project-images/refonte-cabinet-dentaire.png",
+    image: "/project-images/refonte-clinique-nova-services.png",
   },
   {
-    type: "E-commerce",
+    type: "Maintenance",
     title: "Commerce en ligne",
     result: "Site plus stable",
     description: "Maintenance et optimisation d'une boutique pour fiabiliser le parcours d'achat, les mises à jour et les performances.",
@@ -97,7 +97,7 @@ export const landingProjects = [
     image: "/project-images/maintenance-urban-cart-dashboard.png",
   },
   {
-    type: "Landing page",
+    type: "App web",
     title: "Landing de conversion",
     result: "2.4x plus rapide",
     description: "Interface orientée conversion avec une hiérarchie claire, des visuels utiles et des appels à l'action mieux placés.",

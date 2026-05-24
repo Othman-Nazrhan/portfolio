@@ -1,7 +1,5 @@
-import { BrandLogo } from "../../components";
-import { landingNavLinks } from "../../data";
-
-
+﻿import { BrandLogo } from "../../components";
+import { contactEmail, landingNavLinks } from "../../data";
 
 export default function LandingFooter() {
   return (
@@ -24,13 +22,11 @@ export default function LandingFooter() {
           </nav>
         </div>
         <div className="md:text-right">
-          <p className="text-xs text-slate-400">📩 hello@webengineer.com</p>
-          <p className="text-xs text-slate-400">📱 Instagram : @webengineer</p>
-          <p className="mt-4 text-xs text-slate-400">🌐 Web Engineer © 2026</p>
+          <p className="text-xs text-slate-400">{contactEmail}</p>
+          <p className="text-xs text-slate-400">Instagram : @webengineer</p>
+          <p className="mt-4 text-xs text-slate-400">Web Engineer © 2026</p>
         </div>
       </div>
     </footer>
   );
 }
-
-

@@ -8,6 +8,7 @@ import { ProjectDialogButton } from "./sections/landing/ProjectDialogButton.jsx"
 
 const PremiumLanding = lazy(() => import("./sections/PremiumLanding.jsx"));
 const ProjectsPageSection = lazy(() => import("./sections/ProjectsPageSection.jsx"));
+const ProjectDialog = lazy(() => import("./sections/landing/ProjectDialog.jsx"));
 
 export default function App() {
   const motionConfig = useMotionSettings();
@@ -55,23 +56,18 @@ export default function App() {
   return (
     <main onClick={handleNavigation} className="min-h-screen overflow-hidden bg-[#05070b] text-white">
       {currentPath === "/portfolio" ? <PortfolioPage motionConfig={motionConfig} /> : <HomePage motionConfig={motionConfig} />}
+      <Suspense fallback={null}>
+        <ProjectDialog />
+      </Suspense>
     </main>
   );
 }
 
 function HomePage({ motionConfig }) {
   return (
-    <Suspense fallback={<HomeFallback />}>
+    <Suspense fallback={<PageFallback label="Chargement de l'accueil..." fullScreen />}>
       <PremiumLanding motionConfig={motionConfig} />
     </Suspense>
-  );
-}
-
-function HomeFallback() {
-  return (
-    <section className="grid min-h-screen place-items-center px-5 text-sm font-bold text-slate-300">
-      Chargement...
-    </section>
   );
 }
 
@@ -79,7 +75,7 @@ function PortfolioPage({ motionConfig }) {
   return (
     <>
       <PortfolioNav />
-      <Suspense fallback={<PortfolioFallback />}>
+      <Suspense fallback={<PageFallback label="Chargement du portfolio..." />}>
         <ProjectsPageSection motionConfig={motionConfig} />
       </Suspense>
       <CtaSection motionConfig={motionConfig} />
@@ -88,11 +84,15 @@ function PortfolioPage({ motionConfig }) {
   );
 }
 
-function PortfolioFallback() {
+function PageFallback({ label, fullScreen = false }) {
+  if (fullScreen) {
+    return <section className="grid min-h-screen place-items-center px-5 text-sm font-bold text-slate-300">{label}</section>;
+  }
+
   return (
     <section className="relative px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
       <div className="mx-auto max-w-7xl rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-sm font-bold text-slate-300">
-        Chargement du portfolio...
+        {label}
       </div>
     </section>
   );
