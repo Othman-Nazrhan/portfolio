@@ -1,22 +1,22 @@
-# Web Engineer Portfolio
+﻿# Web Engineer Portfolio
 
-Site startup pour présenter des services de création de sites web, WordPress, applications web, interfaces mobiles, maintenance et refonte. Le projet est construit avec React, Vite, Tailwind CSS et Framer Motion.
+Site startup pour présenter des services de création de sites web, WordPress, applications web, interfaces mobiles, maintenance et refonte. Le projet est construit avec Next.js, React, Tailwind CSS et Framer Motion.
 
 ## Aperçu
 
 - Page d'accueil orientée conversion avec hero, services, process, offres, réalisations, avis, CTA et formulaire de brief.
 - Page portfolio accessible via `/portfolio`, avec filtres, fiches projets, galerie, zoom image et badges de technologies.
+- SEO géré avec les Metadata API de Next.js dans `src/app/layout.jsx` et `src/app/portfolio/page.jsx`.
+- Export statique activé avec `output: "export"` dans `next.config.js`.
 - Catalogue de projets centralisé dans `src/data/sections.js`.
 - Contenus de landing centralisés dans `src/data/landing.js`.
 - Logos/badges de technologies configurés dans `src/data/technologies.js`.
-- Navigation interne gérée côté client dans `src/App.jsx`.
 - Animations adaptées à `prefers-reduced-motion`.
-- Métadonnées SEO, Open Graph, Twitter Card et JSON-LD dans `index.html`.
 
 ## Stack
 
+- Next.js 16
 - React 19
-- Vite 8
 - Tailwind CSS 4
 - Framer Motion
 - ESLint
@@ -33,19 +33,19 @@ npm install
 npm run dev
 ```
 
-Lance le serveur de développement Vite.
+Lance le serveur de développement Next.js.
 
 ```bash
 npm run build
 ```
 
-Génère la version de production dans `dist/`.
+Génère la version statique de production dans `out/`.
 
 ```bash
 npm run preview
 ```
 
-Sert localement le build de production.
+Sert localement le build statique depuis `out/`.
 
 ```bash
 npm run lint
@@ -57,6 +57,7 @@ Vérifie le code avec ESLint.
 
 ```text
 src/
+  app/          Routes Next.js, layout SEO et wrappers client
   components/   Composants UI réutilisables
   data/         Contenus, navigation, styles, icônes et technologies
   hooks/        Hooks React partagés
@@ -69,23 +70,24 @@ public/
   sitemap.xml
 ```
 
-## Optimisations
+## SEO
 
-- La home et la page portfolio sont lazy-loadées pour séparer les chunks principaux.
-- Le bouton de brief est séparé de la modale pour éviter de charger le formulaire complet dans les navigations.
-- Les badges de technologies sont configurés une seule fois dans `src/data/technologies.js`.
-- Les images externes compatibles passent par `src/utils/projectImages.js` pour générer des variantes de largeur.
-- Les animations utilisent `src/hooks/useMotionSettings.js` pour respecter les préférences de réduction de mouvement.
+- Metadata globale : `src/app/layout.jsx`
+- Metadata portfolio : `src/app/portfolio/page.jsx`
+- JSON-LD Organization : `src/app/layout.jsx`
+- Sitemap et robots : `public/sitemap.xml`, `public/robots.txt`
+- Export statique : `next.config.js`
 
 ## Modifier le contenu
 
 - Nom de marque et email : `src/data/brand.js`
-- Navigation : `src/data/navigation.js`
+- Navigation : `src/data/navigation.js` et `src/data/landing.js`
 - Landing page : `src/data/landing.js`
 - Catalogue portfolio : `src/data/sections.js`
 - Badges technologies : `src/data/technologies.js`
 - Images de projets : `public/project-images/`
-- Métadonnées SEO globales : `index.html`
+- Métadonnées SEO globales : `src/app/layout.jsx`
+- Métadonnées SEO portfolio : `src/app/portfolio/page.jsx`
 
 Après une modification de contenu ou d'interface, lancer :
 
@@ -102,10 +104,11 @@ npm run build
 
 ## Déploiement
 
-Le projet génère un site statique. Après `npm run build`, déployer le contenu du dossier `dist/` sur l'hébergeur choisi.
+Le projet génère un site statique. Après `npm run build`, déployer le contenu du dossier `out/` sur l'hébergeur choisi.
 
 Avant mise en ligne, mettre à jour les URLs publiques dans :
 
-- `index.html`
+- `src/app/layout.jsx`
+- `src/app/portfolio/page.jsx`
 - `public/sitemap.xml`
 - `public/robots.txt`

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://devstudio.com/sitemap.xml
+Sitemap: https://www.web-engineer.fr/sitemap.xml

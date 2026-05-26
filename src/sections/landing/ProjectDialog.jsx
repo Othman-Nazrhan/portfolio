@@ -1,13 +1,10 @@
 ﻿import { useEffect, useRef, useState } from "react";
 import { Icon } from "../../components";
-import { contactEmail } from "../../data";
+import { contactAutoResponseMessage, contactFormEndpoint } from "../../data";
 
 const projectTypes = ["Site vitrine", "Landing page", "Site WordPress", "Application web", "Application mobile", "Refonte", "Maintenance", "Autre"];
 const budgets = ["100 - 300 EUR", "300 - 600 EUR", "600 - 1000 EUR", "1000 EUR et plus"];
 const timelines = ["Urgent", "1 à 2 semaines", "Ce mois-ci", "Je compare les options"];
-const formEndpoint = `https://formsubmit.co/${contactEmail}`;
-const autoResponseMessage =
-  "Bonjour,\n\nMerci pour votre demande. Nous avons bien reçu votre brief et nous allons l'étudier avec attention.\n\nVous recevrez une réponse claire sous 24h ouvrables avec les prochaines étapes.\n\nÀ très vite,\nWeb Engineer";
 
 export default function ProjectDialog() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,17 +102,21 @@ export default function ProjectDialog() {
           </div>
         )}
 
-        <form ref={formRef} action={formEndpoint} method="POST" target="brief-submit-frame" onSubmit={handleSubmit} className="mt-7 grid gap-4">
+        <form ref={formRef} action={contactFormEndpoint} method="POST" target="brief-submit-frame" onSubmit={handleSubmit} className="mt-7 grid gap-4">
           <input type="hidden" name="_subject" value="Nouvelle demande - Brief rapide Web Engineer" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_autoresponse" value={autoResponseMessage} />
+          <input type="hidden" name="_autoresponse" value={contactAutoResponseMessage} />
+          <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="source" value="Brief rapide Web Engineer" />
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-3">
             <Field label="Votre nom">
               <input name="name" required placeholder="Nom / entreprise" className={inputClass} />
             </Field>
             <Field label="Votre email">
               <input name="email" type="email" required placeholder="vous@email.com" className={inputClass} />
+            </Field>
+            <Field label="Telephone">
+              <input name="phone" type="tel" placeholder="07 50 03 93 85" className={inputClass} />
             </Field>
           </div>
 

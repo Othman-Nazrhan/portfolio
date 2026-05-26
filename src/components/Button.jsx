@@ -4,6 +4,7 @@ import Icon from "./Icon.jsx";
 export default function Button({
   children,
   className = "",
+  disabled = false,
   href = "#contact",
   type,
   variant = "primary",
@@ -21,10 +22,11 @@ export default function Button({
   return (
     <Component
       whileTap={{ scale: 0.98 }}
+      disabled={type || opensBriefDialog ? disabled : undefined}
       href={type || opensBriefDialog ? undefined : href}
       type={type ?? (opensBriefDialog ? "button" : undefined)}
       onClick={opensBriefDialog ? () => window.dispatchEvent(new Event("open-project-dialog")) : undefined}
-      className={`group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-black transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:px-6 ${variants[variant]} ${className}`}
+      className={`group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 text-sm font-black transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6 ${variants[variant]} ${className}`}
     >
       {children}
       <Icon name="arrow" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
